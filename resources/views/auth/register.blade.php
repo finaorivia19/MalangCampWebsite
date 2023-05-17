@@ -1,7 +1,7 @@
 @extends('layoutAbun')
 
 @section('content')
-<div class="box-form-signup">
+<div class="box-form">
     <div class="text">
         Sign Up Now
     </div>

@@ -37,7 +37,7 @@
             border-radius: 26px;
         }
 
-        .box-form-signup{
+        .box-form{
             width: 80vh;
             height: 85vh;
             top: 76px;
@@ -97,8 +97,39 @@
             border: none;
         }
 
-    </style>
+        .verification-input {
+        display: inline-block;
+        position: relative;
+        position: absolute;
+        top: 61%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
 
+        .code-boxes {
+        display: flex;
+        }
+
+        .code-box {
+        flex: 1;
+        margin-right: 6px;
+        margin-left: 6px; 
+        border: 1px solid #ddd;
+        text-align: center;
+        font-size: 16px;
+        padding: 5px;
+        background-color:#D9D9D9; 
+        }
+
+        input[type="text"] {
+        border: none;
+        outline: none;
+        height: 11vh;
+        width: 11vh;
+        }
+
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -106,6 +137,30 @@
             @yield('content')
         </div>
     </div>
+    <script>
+        const codeBoxes = document.querySelectorAll(".code-box");
 
+        for (let i = 0; i < codeBoxes.length; i++) {
+        codeBoxes[i].addEventListener("input", (e) => {
+            if (e.target.value.length >= e.target.maxLength) {
+            if (i < codeBoxes.length - 1) {
+                codeBoxes[i + 1].focus();
+            } else {
+                codeBoxes[i].blur();
+            }
+            }
+        });
+
+        codeBoxes[i].addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && !e.target.value) {
+            if (i > 0) {
+                codeBoxes[i - 1].focus();
+            }
+            }
+        });
+        }
+
+
+    </script>
 </body>
 </html>
