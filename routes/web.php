@@ -21,6 +21,10 @@ Route::get('/', function () {
 //     return view('coba');
 // });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
