@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/coba', function () {
-//     return view('coba');
-// });
+Route::get('/coba', function () {
+    return view('coba');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
