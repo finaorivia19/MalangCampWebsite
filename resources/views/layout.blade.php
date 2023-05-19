@@ -53,7 +53,7 @@
         }
 
         #main-background {
-          background-color: #D5D5D5;
+            background-color: #D5D5D5;
         }
 
         .main-color {
@@ -131,13 +131,179 @@
             }
         }
 
+        #search-column {
+            margin-top: -6px;
+        }
+
+        #search-icon {
+            position: absolute;
+            height: 12px;
+            width: 12px;
+            background: transparent;
+            left: 10px;
+            top: 8px;
+            border-radius: 100%;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Raleway");
+
+        .container {
+            position: relative;
+            margin-top: -2px;
+        }
+
+        .main {
+            position: relative;
+            border: white;
+            height: 25px;
+            background: white;
+            width: 190px;
+            border-radius: 50px;
+            padding-left: 31px;
+            padding-right: 11px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .main:focus {
+            outline: none;
+        }
+
+        .searchicon {
+            position: absolute;
+            height: 12px;
+            width: 12px;
+            background: transparent;
+            border: solid grey;
+            left: 16px;
+            top: 6px;
+            border-radius: 100%;
+        }
+
+        .searchicon:after {
+            content: "";
+            position: absolute;
+            background: grey;
+            height: 4px;
+            width: 2px;
+            bottom: -5px;
+            right: -3px;
+            transform: rotate(-45deg);
+        }
+
+        .icon-holder {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 7px;
+        }
+
+        .icon {
+            position: relative;
+            height: 35px;
+            width: 35px;
+            background: grey;
+            border-radius: 100%;
+            box-shadow: 0px 1px 2px 0px #555;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .icon:hover {
+            background: grey;
+            animation-play-state: paused;
+        }
+
+        .dots {
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            background: white;
+            border-radius: 100%;
+            left: 15px;
+            top: 15px;
+        }
+
+        .dots:after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            background: white;
+            border-radius: 100%;
+            left: 9px;
+        }
+
+        .dots:before {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            background: white;
+            border-radius: 100%;
+            left: -9px;
+        }
+
+        input:focus~.icon-holder>.icon {
+            animation: ani 2.2s ease-out infinite;
+        }
+
+        @keyframes ani {
+            0% {
+                opacity: 1;
+            }
+
+            10% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            20% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tooltip {
+            opacity: 0;
+            position: absolute;
+            font-size: 12px;
+            color: white;
+            background: #555;
+            padding: 8px;
+            top: 15px;
+            border-radius: 15%;
+            top: 45px;
+        }
+
+        .tooltip:after {
+            content: "";
+            position: absolute;
+            background: #555;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            height: 18px;
+            width: 18px;
+            top: -10px;
+            left: 7px;
+        }
+
+        .icon:hover>.tooltip {
+            animation: ani 0.4s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
     </style>
 
     <script>
-
         var enabled = false;
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             var pageTitle = "@yield('title')";
 
             if (pageTitle === 'Dashboard') {
@@ -261,23 +427,15 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col col-lg-3">
 
                             <!-- SidebarSearch Form -->
-                            {{-- <div class="form-inline">
-                                <div class="input-group" data-widget="sidebar-search">
-                                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-sidebar">
-                                            <i class="fas fa-search fa-fw"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <div class="container">
+                                <input class="main shadow" placeholder="Search"/><span class="searchicon"></span>
+                            </div>
 
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
+                        <div class="col">
                             <ol class="breadcrumb float-sm-right">
                                 <h4 id="logout">Logout</h4>
                             </ol>
