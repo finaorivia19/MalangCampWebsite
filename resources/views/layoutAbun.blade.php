@@ -8,6 +8,9 @@
 
     {{-- font --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    {{-- icon --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <style>
         *{
@@ -53,8 +56,8 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
-            font-size: 35px;
-            line-height: 57px;
+            font-size: 5vh;
+            line-height: 10vh;
         }
 
         .kolom{
@@ -97,11 +100,40 @@
             border: none;
         }
 
+        .logo{
+            margin: 5vh;
+            margin-left: 25vh;
+            height: 30vh;
+            width: 30vh;
+        }
+
+        .logo img{
+            height: 100%;
+            width: 100%;
+        }
+
+        .text-verif{
+            /* padding-top: 45%; */
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 4vh;
+            text-align: center;
+        }
+
+        .text2-verif{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 3vh;
+            text-align: center;
+        }
+
         .verification-input {
         display: inline-block;
         position: relative;
         position: absolute;
-        top: 61%;
+        top: 77%;
         left: 50%;
         transform: translate(-50%, -50%);
         }
@@ -113,21 +145,33 @@
         .code-box {
         flex: 1;
         margin-right: 6px;
-        margin-left: 6px; 
+        margin-left: 6px;
         border: 1px solid #ddd;
         text-align: center;
         font-size: 16px;
         padding: 5px;
-        background-color:#D9D9D9; 
+        background-color:#D9D9D9;
         }
 
         input[type="text"] {
         border: none;
         outline: none;
-        height: 11vh;
-        width: 11vh;
+        height: 10vh;
+        width: 10vh;
         }
 
+        .submitOTP{
+            text-align: center;
+            padding-top: 6vh;
+        }
+
+        .submitOTP button{
+            background: #FFFFFF;
+            border: 1px solid #000000;
+            border-radius: 18px;
+            height: 10vh;
+            width: 10vh;
+        }
 
     </style>
 </head>
