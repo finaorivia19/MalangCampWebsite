@@ -100,6 +100,37 @@
             padding: 16px;
         }
 
+        #table {
+            width:1050px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #address {
+                display: none;
+            }
+
+            #card-content {
+                height: 330px;
+            }
+
+            #table {
+                display: flex;
+                flex-direction: column;
+                width: 550px;
+                height: 870px;
+            }
+
+            #left-box {
+                width: 500px;
+                height: 400px;
+            }
+
+            #right-box {
+                width: 500px;
+                height: 400px;
+            }
+        }
+
     </style>
 
     <script>
