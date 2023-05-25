@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/coba', function () {
+    return view('coba');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/contact-us', function () {
+    return view('contactUs');
+});
+
+// Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+
+// Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
