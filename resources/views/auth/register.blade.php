@@ -72,6 +72,7 @@
                 <button type="submit" class="signup-button">
                     {{ __('SIGN UP') }}
                 </button>
+                {{-- p --}}
             </div>
         </form>
     </div>
