@@ -298,6 +298,38 @@
             animation-delay: 0.3s;
         }
 
+        .cart-pesanan{
+            width: 100%;
+            height: 100vh;
+            background-color: #96858F;
+            border-radius: 18px;
+        }
+
+        .cart-pesanan .content-cart .left-box-cart{
+            float: left;
+            color:white;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+            width: 50%;
+            height: 83%;
+            margin: 3vh;
+        }
+
+        .cart-pesanan .content-cart .right-box-cart{
+            float: left;
+            color:white;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+            width: 50%;
+            height: 69%;
+            margin-right: 3vh;
+            margin-left: 3vh;
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+        }
+
     </style>
 
     <script>
