@@ -26,6 +26,7 @@
                                     <label  style="color:black; font-family: 'Inter'; font-style: normal;" for="upload-photo">Bukti Transaksi</label>
                                     <input type="file" id="upload-photo" name="photo">
                                     <input type="submit" value="Upload">
+                                {{-- p --}}
                                 </div>
                             </form>
                         </div>
