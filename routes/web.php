@@ -33,6 +33,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
 
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('cart');
+
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 Auth::routes();
