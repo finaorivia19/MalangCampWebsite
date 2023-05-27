@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
 
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
