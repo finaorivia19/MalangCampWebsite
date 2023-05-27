@@ -10,7 +10,7 @@
                     </div>
                     <div class="right-box-cart">
                         <div class="content-right-box-cart" >
-                            <form method="POST" action="">
+                            <form method="POST" action="" enctype="multipart/form-data">
                                 @csrf
                                 <div class="tanggal-pinjam" style="padding-top: 3vh;">
                                     <label style="color:black; font-family: 'Inter'; font-style: normal;">Tanggal Pinjamanan</label><br>
@@ -23,10 +23,21 @@
                                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border:none;">
                                 </div>
                                 <div class="upload-bukti-transaksi" style="padding-top: 3vh;">
-                                    <label  style="color:black; font-family: 'Inter'; font-style: normal;" for="upload-photo">Bukti Transaksi</label>
-                                    <input type="file" id="upload-photo" name="photo">
-                                    <input type="submit" value="Upload">
-                                {{-- p --}}
+                                    <input class="custom-input-bukti" type="file" id="upload-photo" name="photo" style="width: 100%; background: #FFFFFF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                                    border-radius: 18px;" onchange="previewImage(event)">
+                                    <label  style="display:flex; color:black; font-family: 'Inter'; font-style: normal; width: 100%;" for="upload-photo">
+                                        <div class="text-kirim-bukti">
+                                            Bukti Transaksi
+                                        </div>
+                                        <div class="button-kirim-bukti">
+                                            <button class="custom-button-kirim">
+                                                {{ __('Kirim') }}
+                                            </button>
+                                        </div>
+                                    </label>
+                                    <div class="preview-bukti" style="padding-top: 3vh;">
+                                        <img class="img-bukti" id="preview" src="#" alt="preview">
+                                    </div>
                                 </div>
                             </form>
                         </div>

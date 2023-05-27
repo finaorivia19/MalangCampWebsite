@@ -37,6 +37,10 @@
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
+        body{
+            overflow-x: hidden;
+        }
+
         #brand {
             font-family: 'Charmonman', cursive;
             font-style: normal;
@@ -300,6 +304,7 @@
         }
 
         .cart-pesanan{
+            box-sizing: border-box;
             width: 100%;
             height: 100vh;
             background-color: #96858F;
@@ -332,7 +337,55 @@
         }
 
         .content-right-box-cart{
-            margin: 10vh;
+            margin-left: 7vh;
+            margin-right:7vh; 
+        }
+
+        .upload-bukti-transaksi .custom-input-bukti{
+            visibility: hidden;
+            width: 0;
+            position: absolute;
+        }
+
+        .upload-bukti-transaksi label{
+            display: inline-block;
+            margin: 0 auto;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            width: 100%;
+            height: 6vh;
+            padding-left: 2vh;
+            cursor: pointer;
+        }
+
+        .text-kirim-bukti{
+            float: left;
+            width: 50%;
+            padding: 1vh 2vh;
+        }
+
+        .button-kirim-bukti{
+            float: left;
+            width: 50%;
+            text-align: right;
+        }
+
+        .custom-button-kirim{
+            width: 12vh;
+            height: 6vh;
+            background: #96858F;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .img-bukti{
+            display:none; 
+            width:8vh; 
+            height:10vh;
         }
 
     </style>
@@ -539,6 +592,44 @@
     {{-- <script src="dist/js/demo.js"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+
+    {{-- script preview img --}}
+    <script>
+        function previewImage(event) {
+        var input = event.target;
+        var preview = document.getElementById('preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            preview.setAttribute('src', e.target.result);
+            preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.setAttribute('src', '#');
+            preview.style.display = 'none';
+        }
+        }
+    </script>
+
+    {{-- script lightbox --}}
+    <script>
+        function openLightbox(image) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+
+            lightbox.style.display = 'block';
+            lightboxImage.src = image.src;
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
