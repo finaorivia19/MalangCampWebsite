@@ -35,6 +35,9 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Charmonman&display=swap" rel="stylesheet">
 
     <style>
+        body {
+            background-color: #D5D5D5;
+        }
         #brand {
             font-family: 'Charmonman', cursive;
             font-style: normal;
@@ -154,6 +157,10 @@
             cursor: pointer;
         }
 
+        #minimize:hover, #file-chat:hover, #send-chat:hover {
+            background-color: white;
+        }
+
         #search-button {
             background-color: #96858F;
             border: none;
@@ -167,6 +174,31 @@
 
         #main-chat {
             font-family: 'ABeeZee', sans-serif;
+            overflow: auto;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        #sender:hover, #receiver:hover {
+            #date-time {
+                color: black;
+            }
+
+            #delete-chat div, #edit-chat div {
+                display: block;
+            }
+
+            #delete-chat {
+                background-color: #673A54;
+                box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+                cursor: pointer;
+            }
+
+            #edit-chat {
+                background-color: #AC608D;
+                box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+                cursor: pointer;
+            }
         }
 
         #receiver td {
@@ -197,6 +229,35 @@
         #user-chat {
             font-size: 13px;
         }
+
+        #date-time {
+            font-size: 13px;
+            color: #D5D5D5;
+        }
+
+        #edit-chat {
+            background-color: transparent;
+            border-radius: 32px;
+        }
+
+        #edit-chat img:hover, #delete-chat img:hover {
+            width: 26px;
+            height: 26px;
+        }
+
+        #edit-chat img, #delete-chat img {
+            width: 24px;
+            height: 24px;
+        }
+
+        #delete-chat {
+            background-color: transparent;
+            border-radius: 32px;
+        }
+
+        #delete-chat div, #edit-chat div {
+            display: none;
+        }
     </style>
 
     <script>
@@ -219,7 +280,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm fixed-top">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -294,7 +355,6 @@
                                         <i class="far fa-user nav-icon"></i>
                                         <p>User 1</p>
                                         <span class="badge badge-info right">5</span>
-
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -331,6 +391,8 @@
                                 <td id="user-chat">
                                     User 3
                                 </td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td>
@@ -339,22 +401,64 @@
                                 <td id="chat-receiver">
                                     Selamat Siang
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td id="delete-chat">
+                                    <div>
+                                        <img src="{{asset('static/image/delete-icon.png')}}" alt="delete-icon">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="date-time">
+                                <td></td>
+                                <td>
+                                    <span>2023/05/27 13:29:21</span>
+                                </td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </table>
                         <table id="sender">
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td id="user-chat">
                                     Admin
                                 </td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <td id="delete-chat">
+                                    <div>
+                                        <img src="{{asset('static/image/delete-icon.png')}}" alt="delete-icon">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td id="edit-chat">
+                                    <div>
+                                        <img src="{{asset('static/image/edit-icon.png')}}" alt="delete-icon">
+                                    </div>
+                                </td>
+                                <td></td>
                                 <td id="chat-sender">
                                     Selamat Siang
                                 </td>
                                 <td>
                                     <img src="dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="sender-img">
                                 </td>
+                            </tr>
+                            <tr id="date-time">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <span>2023/05/27 13:29:21</span>
+                                </td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
