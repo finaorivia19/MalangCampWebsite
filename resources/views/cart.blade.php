@@ -12,6 +12,15 @@
                         <div class="content-right-box-cart" >
                             <form method="POST" action="" enctype="multipart/form-data">
                                 @csrf
+                                <div class="cart-input">
+                                    <input type="text" placeholder="">
+                                </div>
+                                <div class="cart-input" placeholder="">
+                                    <input type="text">
+                                </div>
+                                <div class="cart-input" placeholder="">
+                                    <input type="text">
+                                </div>
                                 <div class="tanggal-pinjam" style="padding-top: 3vh;">
                                     <label style="color:black; font-family: 'Inter'; font-style: normal;">Tanggal Pinjamanan</label><br>
                                     <input type="date" name="tanggal-pinjam" style="width: 100%; height: 6vh; border-radius:4px; background: #FFFFFF;

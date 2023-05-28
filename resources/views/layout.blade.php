@@ -338,7 +338,7 @@
 
         .content-right-box-cart{
             margin-left: 7vh;
-            margin-right:7vh; 
+            margin-right:7vh;
         }
 
         .upload-bukti-transaksi .custom-input-bukti{
@@ -383,9 +383,22 @@
         }
 
         .img-bukti{
-            display:none; 
-            width:8vh; 
+            display:none;
+            width:8vh;
             height:10vh;
+        }
+
+        .cart-input{
+            padding-top: 3vh;
+        }
+
+        .cart-input input{
+            width: 100%;
+            height: 6vh;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            border: none;
         }
 
     </style>
@@ -615,8 +628,8 @@
         }
     </script>
 
-    {{-- script lightbox --}}
-    <script>
+    {{-- script lightbox belum fix dipakai--}}
+    {{-- <script>
         function openLightbox(image) {
             var lightbox = document.getElementById('lightbox');
             var lightboxImage = document.getElementById('lightbox-image');
@@ -629,7 +642,7 @@
             var lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
         }
-    </script>
+    </script> --}}
 </body>
 
 </html>
