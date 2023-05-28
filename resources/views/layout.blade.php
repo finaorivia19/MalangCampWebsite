@@ -100,17 +100,13 @@
             padding: 16px;
         }
 
-        #table {
-            width:1050px;
-        }
-
         @media screen and (max-width: 768px) {
             #address {
                 display: none;
             }
 
             #card-content {
-                height: 330px;
+                height: 100%;
             }
 
             #table {

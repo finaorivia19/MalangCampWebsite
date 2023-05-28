@@ -1,5 +1,5 @@
 @extends('layoutAbun')
-
+@section('title', 'Verification')
 @section('content')
 <div class="box-form">
     <div class="logo">
@@ -21,12 +21,11 @@
           <input type="text" class="code-box" maxlength="1" />
         </div>
         <div class="submitOTP">
-            <button class="arrow-button">
+            <button type="submit" class="otp-button">
                 <i class="fas fa-arrow-right"></i>
               </button>
           </div>
       </div>
-      {{-- p --}}
 </div>
 
 @endsection
