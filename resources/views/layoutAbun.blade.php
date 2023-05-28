@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>benakno den | Malang Camp</title>
+    <link rel="icon" href="{{asset('static/image/malang-camp-logo-1.png')}}">
+    <title>@yield('title') | Malang Camp</title>
 
     {{-- font --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -84,7 +85,7 @@
             padding-top: 3vh;
         }
 
-        .kolom-submit button{
+        .kolom-submit .signup-button{
             display: inline-block;
             margin: 0 auto;
             background:#96858F;
@@ -98,6 +99,7 @@
             color: #FFFFFF;
             padding-left: 2vh;
             border: none;
+            cursor: pointer;
         }
 
         .logo{
@@ -130,34 +132,34 @@
         }
 
         .verification-input {
-        display: inline-block;
-        position: relative;
-        position: absolute;
-        top: 77%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+            display: inline-block;
+            position: relative;
+            position: absolute;
+            top: 77%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .code-boxes {
-        display: flex;
+            display: flex;
         }
 
         .code-box {
-        flex: 1;
-        margin-right: 6px;
-        margin-left: 6px;
-        border: 1px solid #ddd;
-        text-align: center;
-        font-size: 16px;
-        padding: 5px;
-        background-color:#D9D9D9;
+            flex: 1;
+            margin-right: 6px;
+            margin-left: 6px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 16px;
+            padding: 5px;
+            background-color:#D9D9D9;
         }
 
         input[type="text"] {
-        border: none;
-        outline: none;
-        height: 10vh;
-        width: 10vh;
+            border: none;
+            outline: none;
+            height: 10vh;
+            width: 10vh;
         }
 
         .submitOTP{
@@ -165,15 +167,38 @@
             padding-top: 6vh;
         }
 
-        .submitOTP button{
+        .submitOTP .otp-button{
             background: #FFFFFF;
             border: 1px solid #000000;
             border-radius: 18px;
             height: 10vh;
             width: 10vh;
+            cursor: pointer;
+        }
+
+        .otp-button:hover{
+            background-color: #96858F;
+            border: none;
         }
 
     </style>
+
+    <script>
+        $(document).ready(function () {
+            var pageTitle = "@yield('title')";
+
+            if (pageTitle === 'Dashboard') {
+                // console.log(pageTitle);
+                $('#main-content').css({
+                    "background-image": "url('{{asset('static/image/main-background-home.png')}}')",
+                });
+            } else {
+                $('#main-content').css({
+                    "background-image": "url('{{asset('static/image/main-background-all.png')}}')",
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">

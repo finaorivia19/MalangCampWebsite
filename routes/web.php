@@ -32,6 +32,8 @@ Route::get('/coba', function () {
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+
 Route::get('/contact-us', function () {
     return view('contactUs');
 });
