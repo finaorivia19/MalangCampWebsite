@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/account', function () {
+    return view('account');
+
 Route::get('/live-chat', function () {
     return view('live-chat');
 });
@@ -29,6 +32,12 @@ Route::get('/live-chat', function () {
 Route::get('/coba', function () {
     return view('coba');
 });
+
+Route::get('/update-account', function () {
+    return view('updateAccount');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
