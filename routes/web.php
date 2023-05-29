@@ -14,29 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('index');
+// })->middleware('auth');
+
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/live-chat', function () {
+    return view('live-chat');
 });
 
 Route::get('/coba', function () {
     return view('coba');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
 
 Route::get('/contact-us', function () {
     return view('contactUs');
 });
 
 // Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+// Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
 
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 Auth::routes();
 
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
