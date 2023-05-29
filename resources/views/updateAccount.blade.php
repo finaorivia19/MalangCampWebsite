@@ -30,7 +30,7 @@
                         <select name="kelas" class="form-control">
                             @foreach ($kelas as $Kelas)
                                 {{-- <script>
-                                    console.log({{$Kelas->nama}});
+                                    // console.log({{$Kelas->nama}});
                                 </script> --}}
                                 <option value={{ $Kelas->id }}>{{ $Kelas->nama_kelas }}</option>
                             @endforeach
