@@ -18,8 +18,16 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/account', function () {
+    return view('account');
+});
+
 Route::get('/coba', function () {
     return view('coba');
+});
+
+Route::get('/update-account', function () {
+    return view('updateAccount');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
