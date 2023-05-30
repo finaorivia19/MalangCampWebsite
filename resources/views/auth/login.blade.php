@@ -69,5 +69,6 @@
             </div>
         </div>
     </div>
+    <!-- p -->
 </div>
 @endsection
