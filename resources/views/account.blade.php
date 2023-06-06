@@ -15,7 +15,7 @@
                     style="width:120px; height:120px; top:80px; margin-left:130%;  text-align: center;">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left:250%" ;>Username </h5>
+                        <h5 class="card-title" style="margin-left:60vh ;" ;>{{Auth::user()->username}} </h5>
 
 
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
@@ -33,22 +33,20 @@
                     <div>
                         <div class="card-body">
                             <h5 style="line-height:1,5; word-spacing:9px; display:inline;">Email
-                                Address : jaka1tarub@gmail.com</p><br>
-                            <h5 style="line-height:3; word-spacing:5px;">Phone Number : 08971xxxxxx
+                                Address : {{Auth::user()->email}}</p><br>
+                            <h5 style="line-height:3; word-spacing:5px;">Phone Number : {{Auth::user()->phoneNumber}}
                             </h5> <br>
-                            <h5 style="line-height:3; word-spacing:12px;">Your Address : Nganjuk</h5>
+                            <h5 style="line-height:3; word-spacing:12px;">Your Address : {{Auth::user()->address}}</h5>
                         </div>
                         <center>
                             <button type="button" class="btn btn-outline-light" style="background-color:#AC608D;">Delete
                                 Account</button>
-                                <form action="{{ route('data.destroy', $data->id) }}" method="POST">
+                                <form action="" method="DELETE">
                                 @csrf
                                   @method('DELETE')
-                                <button type="submit">Delete</button>
                                 </form>
 
-                            <button type="button" class="btn btn-outline-light" style="background-color:#673A54;">Update
-                                Account</button>
+                                <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account">Update Account</a>
                         </center>
                         <br>
                     </div>

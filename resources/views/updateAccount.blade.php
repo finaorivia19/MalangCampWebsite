@@ -2,61 +2,101 @@
 @section('title', 'updateAccount')
 @section('content')
 
+<style>
+        .kolom{
+            text-align: left;
+            padding-top: 3vh;
+        }
+
+        .kolom input{
+            display: inline-block;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            width: 77%;
+            height: 41px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100;
+            padding-left: 2vh;
+            border: none;
+        }
+
+</style>
+
 <div class="all" style="padding-top:40px;">
 <div class="d-flex" id="table" style=" background-color: #96858F; padding: 25px; border-radius: 35px; margin-left:85px; width: 800px;">
-<div class="card mb-3" style="max-width: 800px; border-radius:20px; background-color: #D9D9D9;">
-    <div class="row g-0">
-        <div class="col-md-4">
-        </div>
+
+<div class="card mb-3" style="width: 100%; border-radius:20px; background-color: #D9D9D9;">
         <div class="col-md-8">
             <div class="card-body">
-            <form method="post" action="{{ route('mahasiswas.store') }}" id="myForm" enctype="multipart/form-data">
+            <form method="post" action="" id="myForm" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
-                        <label for="nim">NIM</label><br>
-                        <input type="text" name="nim" class="form-control" id="nim" aria-describedby="nim">
+
+                    <div class="update-foto">
+                        Foto Profil
+                        <input id="name" type="file" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:18vh; border:none; width:18vh; height:18vh; border-radius:18px">
+
+                        {{-- @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                @enderror --}}
                     </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label><br>
-                        <input type="text" name="nama" class="form-control" id="nama" aria-describedby="nama">
-                    </div>
-                    <div class="form-group">
-                        <label for="foto">Foto</label>
-                        <input type="file" name="foto" class="form-control" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="kelas">Kelas</label>
-                        {{-- <input type="text" name="kelas" class="formcontrol" id="kelas" aria-describedby="kelas"> --}}
-                        <select name="kelas" class="form-control">
-                            @foreach ($kelas as $Kelas)
-                                {{-- <script>
-                                    // console.log({{$Kelas->nama}});
-                                </script> --}}
-                                <option value={{ $Kelas->id }}>{{ $Kelas->nama_kelas }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="jurusan">Jurusan</label><br>
-                        <input type="text" name="jurusan" class="form-control" id="jurusan"
-                            aria-describedby="jurusan">
-                    </div>
-                    <div class="form-group">
-                        <label for="no_hp">No_HP</label><br>
-                        <input type="text" name="no_hp" class="form-control" id="no_hp"
-                            aria-describedby="no_hp">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label><br>
-                        <input type="email" name="email" class="form-control" id="email"
-                            aria-describedby="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="tanggal_lahir">Tanggal_Lahir</label><br>
-                        <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
-                            aria-describedby="tanggal_lahir">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="kolom">
+                    Username <input {{--id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"--}} placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:5vh;">
+
+                {{-- @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror --}}
+            </div>
+
+            <div class="kolom">
+                Your Name
+                <input {{--id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"--}} placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:4vh;">
+
+                {{-- @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror --}}
+            </div>
+
+            <div class="kolom">
+            Email
+                <input {{--id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"--}} placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:10vh;">
+
+                {{-- @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror --}}
+            </div>
+
+            <div class="kolom">
+            NoHP
+                <input {{--id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"--}} placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:10vh;">
+
+                {{-- @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror --}}
+            </div>
+
+            <div class="kolom">
+            Address
+                <input {{--id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"--}} placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:7vh;">
+
+                {{-- @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror --}}
+            </div>
+            </div>
                 </form>
                 <!-- <h5 class="mb-3 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h5>
                 <h6 class="mb-4 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h6>
@@ -64,13 +104,14 @@
                 <h6 class="mb-4 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h6>
                 <h5 class="mb-3 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h5>
                 <h6 class="mb-4 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h6> -->
-                <button type="button" class="btn btn-outline-light"style="background-color:#AC608D;">Cancel</button>
-                <button type="button" class="btn btn-outline-light"style="background-color:#673A54;">Update</button>
                 
+                    <div class="button-cncl-updt" style="margin-left:20vh">
+                        <a href="account" class="btn btn-outline-light"style="background-color:#AC608D;">Cancel</a>
+                        <a href="account" type="button" class="btn btn-outline-light"style="background-color:#673A54;">Update</a>
+                    </div>
+
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 @endsection
