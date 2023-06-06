@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 Route::get('/account', function () {
     return view('account');
+});
 
 Route::get('/live-chat', function () {
     return view('live-chat');
@@ -47,6 +48,9 @@ Route::get('/contact-us', function () {
     return view('contactUs');
 });
 
+Route::delete('/data/{id}', 'DataController@destroy')->name('data.destroy');
+
+
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -56,4 +60,4 @@ Route::get('/contact-us', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

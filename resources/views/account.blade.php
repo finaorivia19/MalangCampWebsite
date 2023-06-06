@@ -41,6 +41,12 @@
                         <center>
                             <button type="button" class="btn btn-outline-light" style="background-color:#AC608D;">Delete
                                 Account</button>
+                                <form action="{{ route('data.destroy', $data->id) }}" method="POST">
+                                @csrf
+                                  @method('DELETE')
+                                <button type="submit">Delete</button>
+                                </form>
+
                             <button type="button" class="btn btn-outline-light" style="background-color:#673A54;">Update
                                 Account</button>
                         </center>
