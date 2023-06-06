@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Route; 
+use Illuminate\Http\Request; 
+use App\Http\Controllers\KelolaBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +26,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
 
+// Route::get('/kelolaBarang', function () {
+//     return view('kelolaBarang');
+// });
+
+Route::resource('kelolaBarang', KelolaBarangController::class);
+
+// Route::get('/kelolaBarang', [App\Http\Controllers\KelolaBarangController::class, 'kelolaBarang'])->name('keloalaBarang');
+
+// Route::post('/kelolaBarang', [KelolaBarangController::class, 'kelolaBarang']);
+
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
-Auth::routes();
-
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
