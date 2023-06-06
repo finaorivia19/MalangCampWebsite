@@ -1,5 +1,5 @@
 @extends('layoutAbun')
-
+@section('title', 'Sign Up')
 @section('content')
 <div class="box-form">
     <div class="text">
@@ -69,9 +69,10 @@
             </div>
 
             <div class="kolom-submit">
-                <button type="submit" class="btn-signup">
+                <button type="submit" class="signup-button">
                     {{ __('SIGN UP') }}
                 </button>
+                {{-- p --}}
             </div>
         </form>
     </div>
