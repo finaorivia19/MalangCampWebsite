@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/account', function () {
+    return view('account');
+});
+
 Route::get('/live-chat', function () {
     return view('live-chat');
 });
@@ -30,6 +34,12 @@ Route::get('/coba', function () {
     return view('coba');
 });
 
+Route::get('/update-account', function () {
+    return view('updateAccount');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
@@ -37,6 +47,9 @@ Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba']
 Route::get('/contact-us', function () {
     return view('contactUs');
 });
+
+Route::delete('/data/{id}', 'DataController@destroy')->name('data.destroy');
+
 
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -47,4 +60,4 @@ Route::get('/contact-us', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
