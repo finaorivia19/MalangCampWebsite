@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Charmonman&display=swap" rel="stylesheet">
 
+
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -41,6 +42,10 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         #brand {
             font-family: 'Charmonman', cursive;
             font-style: normal;
@@ -66,7 +71,7 @@
         }
 
         #main-content {
-            /* background-image: url('{{asset('static/image/main-background-all.png')}}'); */
+            background-image: url('{{asset('static/image/main-background-all.png')}}');
             background-size: cover;
             background-position: bottom;
             height: 128vh;
@@ -105,17 +110,13 @@
             padding: 16px;
         }
 
-        #table {
-            width:1050px;
-        }
-
         @media screen and (max-width: 768px) {
             #address {
                 display: none;
             }
 
             #card-content {
-                height: 330px;
+                height: 100%;
             }
 
             #table {
@@ -303,6 +304,402 @@
             animation-delay: 0.3s;
         }
 
+        .utama{
+
+        }
+        .box_kelola{
+            position: relative;
+            width: 30%;
+            height: 50%;
+            margin-left: 2%;
+            margin-right: 2%;
+            top: 25px;
+
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        .text{
+            position: relative;
+            width: 131px;
+            height: 16px;
+            left: 31%;
+            top: 15px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 21px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+        }
+
+        .box_foto{
+            position: relative;
+            width: 95px;
+            height: 95px;
+            margin-top: 26px;
+            margin-left: 33%;
+            background-color: rgba(150, 150, 150, 0.75);
+            border: 0px solid #ccc;
+            border-radius: 10px;
+            /* padding-left: 23px; */
+            /* padding-top: 15px; */
+        }
+
+        .drop-container {
+            margin : 27px;
+            position: relative;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            weight: 100%;
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px dashed #555;
+            color: #444;
+            cursor: pointer;
+            transition: background .2s ease-in-out, border .2s ease-in-out;
+        }
+
+        .drop-container:hover {
+            background-color: rgba(150, 133, 143, 0.5);
+            border-color: grey;
+        }
+
+        .drop-container:hover .drop-title {
+            color: #222;
+        }
+
+        .drop-title {
+            color: #444;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            transition: color .2s ease-in-out;
+        }
+
+        #images {
+            width: 140px;
+            height: 24px;
+            font-size: 10px;
+            padding: 1px;
+        }
+
+        .box{
+            width: 210px;
+            height: 130px;
+            background-color: rgba(300, 300, 300, 0.5); 
+            border: 2px solid #ccc;
+            border-radius: 30px;
+        } 
+
+        .box_isi{
+            position: static;
+            width: 94%;
+            height: 25px;
+            top: 110;
+            background-color: rgba(300, 300, 300, 0.5);
+            border: 0px solid #ccc;
+            border-radius: 7px;
+            color: white;
+        }
+
+        .box_add{
+            position: relative;
+            width: 30%;
+            height: 5%;
+            margin-left: 12%;
+            margin-right: 2%;
+            top: 13px;
+            background-color: #96858F;
+            border: 0px solid #ccc;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 15px;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .box_list{
+            position: relative;
+            width: 97%;
+            height: 380px;
+            left: 2%;
+            right: 2%;
+            top: 65px;
+            background: #96858F;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+        .box_tenda{
+            position: relative;
+            width: 150px;
+            height: 35px;
+            left: 36.5%;
+            top: 18px;
+            margin-bottom: 10px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+        .hapus_edit{
+        
+        }
+
+        .tenda{
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .nama{
+            font-size: 10px;
+            margin-left: 15px;
+            font-family: 'Inter';
+            font-style: normal;
+        }
+
+        .panah{
+            position: relative;
+            width: 35px;
+            height: 35px;
+            left: 36.5%;
+            top: 18px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            text-align: center;
+            font-size:25px;
+        }
+
+        #text-input{
+            padding-left:7px;
+            color: black;
+            border:none;
+            font-size: 12px;
+        }
+        
+        .upload{
+            font-size:10px;
+            position: relative;
+            left: 24%;
+        }
+
+        .pencil{
+            margin-left: 77%;
+            top: 0%;
+            position: relative:
+        }
+
+
+        /* chat */
+        #before-chat {
+            position: fixed;
+            bottom: 0;
+            right: 8px;
+
+            width: 276px;
+            height: 40px;
+            border-radius: 16px 16px 0px 0px;
+            background-color: #673A54;
+            box-shadow: 0 3px 8px rgb(0, 0, 0, 0.8);
+
+            color: white;
+            font-family: 'ABeeZee', sans-serif;
+            cursor: pointer;
+        }
+
+        #before-chat div {
+            margin-top: 8px;
+            margin-left: 16px;
+        }
+
+        #after-chat {
+            position: fixed;
+            bottom: 0;
+            right: 8px;
+
+            width: 276px;
+            height: 320px;
+            background-color: white;
+            border-radius: 10px 10px 0px 0px;
+            box-shadow: 0 3px 8px rgb(0, 0, 0, 0.8);
+
+            overflow: auto;
+            padding-bottom: 32px;
+
+            display: none;
+        }
+
+        #header-chat {
+            position: fixed;
+            bottom: 1;
+
+            width: 276px;
+            height: 40px;
+            border-radius: 0px 0px 8px 8px;
+            background-color: #673A54;
+            box-shadow: 0 3px 8px rgb(0, 0, 0, 0.4);
+
+            color: white;
+            font-family: 'ABeeZee', sans-serif;
+            cursor: pointer;
+
+            border-collapse: collapse;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        #header-chat #minimize-chat{
+            padding-left: 100px;
+            padding-right: 16px;
+        }
+
+        #header-chat img {
+            width: 24px;
+            height: 24px;
+        }
+
+        #choose-user .form-select {
+            background-color: #673A54;
+            border: none;
+            color: white;
+            font-family: 'ABeeZee', sans-serif;
+        }
+
+        #footer-chat {
+            position: fixed;
+            bottom: 0;
+
+            width: 276px;
+            height: 40px;
+            border-radius: 8px 8px 0px 0px;
+            background-color: #A7688D;
+
+            color: white;
+            font-family: 'ABeeZee', sans-serif;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            border-collapse: collapse;
+            padding-top: 6px;
+        }
+
+        #chat-text, #send-chat {
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        #footer-chat img {
+            width: 16px;
+            height: 16px;
+        }
+
+        #footer-chat input {
+            box-shadow: 0 3px 8px rgb(0, 0, 0, 0.4);
+            border-radius: 16px;
+            border: none;
+            padding-left: 8px;
+            width: 192px;
+        }
+
+        #send-chat {
+            background-color: white;
+            padding: 2.5px 6px 2.5px 6px;
+            border-radius: 50%;
+            box-shadow: 0 3px 8px rgb(0, 0, 0, 0.4);
+        }
+
+        #send-chat:hover {
+            background-color: #D5D5D5;
+        }
+
+        #content-chat {
+            font-family: 'ABeeZee', sans-serif;
+            margin-top: 48px;
+        }
+
+        #receiver td {
+            padding-right: 4px;
+            padding-left: 4px;
+            margin-top: 4px;
+        }
+
+        #sender {
+            display: flex;
+            justify-content: flex-end;
+            border-collapse: collapse;
+        }
+
+        #sender td {
+            padding-right: 4px;
+            padding-left: 4px;
+            margin-top: 4px;
+        }
+
+        #sender img, #receiver img{
+            width: 24px;
+            height: 24px;
+        }
+
+        #chat-receiver {
+            background-color: #D5D5D5;
+            border-radius: 0px 8px 8px 8px;
+            color: rgb(0, 0, 0);
+            box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+            padding-right: 8px;
+            padding-left: 8px;
+            max-width: 192px;
+        }
+
+        #chat-sender {
+            background-color: #96858F;
+            border-radius: 8px 0px 8px 8px;
+            color: white;
+            box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+            padding-right: 8px;
+            padding-left: 8px;
+            max-width: 192px;
+        }
+
+        #maximize-chat a img:hover{
+            width: 26px;
+            height: 26px;
+        }
+
+        #minimize-chat img:hover{
+            width: 22px;
+            height: 22px;
+        }
+
+        /* header */
+        /* a.active {
+            background-color: #96858F;
+            border-radius: 16px;
+            box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+            text-decoration: underline;
+        } */
+
+        .header-link {
+        text-decoration: none;
+        }
+
+        .header-link.active {
+        text-decoration: underline;
+        }
+        
     </style>
 
     <script>
@@ -321,6 +718,22 @@
                     "background-image": "url('{{asset('static/image/main-background-all.png')}}')",
                 });
             }
+
+            // Mendapatkan URL saat ini
+            var currentUrl = window.location.href;
+            // Mencari tautan header yang sesuai dengan URL saat ini
+            $('.header-link').each(function() {
+                var linkUrl = $(this).attr('href');
+                var shortUrl = linkUrl.split('/');
+                // console.log(shortUrl);
+                if (shortUrl[1] != '') {
+                    if (currentUrl.indexOf(linkUrl) > -1) {
+                        $('.header-link:contains("Home")').removeClass('active');
+                        // console.log(linkUrl);
+                        $(this).addClass('active');
+                    }
+                }
+            });
         });
 
         function close_sidebar() {
@@ -347,6 +760,16 @@
         $( function() {
             $( "#datepicker" ).datepicker();
         } );
+
+        function closeChat() {
+            $('#after-chat').hide();
+            $('#before-chat').show();
+        }
+
+        function openChat() {
+            $('#before-chat').hide();
+            $('#after-chat').show();
+        }
     </script>
 </head>
 
@@ -362,19 +785,19 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/" class="nav-link"><u>Home</u></a>
+                    <a href="/" class="nav-link header-link active">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/cart" class="nav-link">Cart</a>
+                    <a href="/cart" class="nav-link header-link">Cart</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/item" class="nav-link">Item</a>
+                    <a href="/item" class="nav-link header-link">Item</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/account" class="nav-link">Account</a>
+                    <a href="/account" class="nav-link header-link">Account</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/contact-us" class="nav-link">Contact Us</a>
+                    <a href="/contact-us" class="nav-link header-link">Contact Us</a>
                 </li>
                 {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="/order" class="nav-link">Order</a>
@@ -474,6 +897,74 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+    <div id="live-chat">
+        <div id="before-chat" onclick="openChat()">
+            <div>
+                <span>LiveChat</span>
+            </div>
+        </div>
+        <div id="after-chat">
+            <table>
+                <tr id="header-chat">
+                    <td id="choose-user">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1" selected>User 1 (5)</option>
+                            <option value="2">User 2 (0)</option>
+                            <option value="3">User 3 (1)</option>
+                          </select>
+                    </td>
+                    <td id="minimize-chat" onclick="closeChat()">
+                        <img src="{{asset('static/image/minimize-2-icon.png')}}" alt="minimize-icon">
+                    </td>
+                    <td id="maximize-chat">
+                        <a href="/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}" alt="maximize-icon"></a>
+                    </td>
+                </tr>
+            </table>
+            <table id="content-chat">
+                <tr>
+                    <table id="receiver">
+                        <tr>
+                            <td>
+                                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="receiver-img">
+                            </td>
+                            <td id="chat-receiver">
+                                Selamat Siang
+                            </td>
+                        </tr>
+                    </table>
+                </tr>
+                <br>
+                <tr>
+                    <table id="sender">
+                        <tr>
+                            <td id="chat-sender">
+                                Selamat Siang
+                            </td>
+                            <td>
+                                <img src="dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="sender-img">
+                            </td>
+                        </tr>
+                    </table>
+                </tr>
+                <br>
+            </table>
+            <table>
+                <tr id="footer-chat">
+                    <td>
+                        <div id="chat-text">
+                            <input type="text" placeholder="Type message">
+                        </div>
+                    </td>
+                    <td>
+                        <div id="send-chat">
+                            <img src="{{asset('static/image/send-icon.png')}}" alt="send-icon">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
