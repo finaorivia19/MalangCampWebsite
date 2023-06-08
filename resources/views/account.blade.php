@@ -15,9 +15,9 @@
                     style="width:120px; height:120px; top:80px; margin-left:130%;  text-align: center;">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left:60vh ;" ;>{{Auth::user()->username}} </h5>
+                        <h5 class="card-title" style="margin-left:60vh ;">{{Auth::user()->username}} </h5>
 
-
+                       
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                     </div>
                 </div>
@@ -38,16 +38,15 @@
                             </h5> <br>
                             <h5 style="line-height:3; word-spacing:12px;">Your Address : {{Auth::user()->address}}</h5>
                         </div>
-                        <center>
-                            <button type="button" class="btn btn-outline-light" style="background-color:#AC608D;">Delete
-                                Account</button>
+                        <center style="">
+                            <button type="button" class="btn btn-outline-light" style="background-color:#AC608D;">Delete Account</button>
                                 <form action="" method="DELETE">
                                 @csrf
                                   @method('DELETE')
                                 </form>
-
-                                <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account">Update Account</a>
+                                <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account" type="button">Update Account</a>
                         </center>
+                        
                         <br>
                     </div>
                 </div>
