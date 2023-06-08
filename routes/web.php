@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\PaketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,22 @@ Route::get('/contact-us', function () {
     return view('contactUs');
 });
 
+Route::get('/kelolaPaket', function () {
+    return view('kelolaPaket');
+});
+
+Route::get('/updatePaket', function () {
+    return view('updatePaket');
+});
+
+Route::get('/tambahPaket', function () {
+    return view('tambahPaket');
+});
+
+Route::get('/paket', function () {
+    return view('paket');
+});
+
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -36,6 +53,8 @@ Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name(
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 Auth::routes();
+
+// Route::resource('paket', PaketController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
