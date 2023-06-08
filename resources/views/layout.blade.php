@@ -655,7 +655,13 @@
                         </div><!-- /.col -->
                         <div class="col">
                             <ol class="breadcrumb float-sm-right">
-                                <h4 id="logout">Logout</h4>
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                               </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
