@@ -33,9 +33,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Charmonman&display=swap" rel="stylesheet">
 
+
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    
+
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         #brand {
             font-family: 'Charmonman', cursive;
             font-style: normal;
@@ -61,7 +68,7 @@
         }
 
         #main-content {
-            /* background-image: url('{{asset('static/image/main-background-all.png')}}'); */
+            background-image: url('{{asset('static/image/main-background-all.png')}}');
             background-size: cover;
             background-position: bottom;
             height: 128vh;
@@ -294,6 +301,204 @@
             animation-delay: 0.3s;
         }
 
+        .utama{
+
+        }
+        .box_kelola{
+            position: relative;
+            width: 30%;
+            height: 50%;
+            margin-left: 2%;
+            margin-right: 2%;
+            top: 25px;
+
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        .text{
+            position: relative;
+            width: 131px;
+            height: 16px;
+            left: 31%;
+            top: 15px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 21px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+        }
+
+        .box_foto{
+            position: relative;
+            width: 95px;
+            height: 95px;
+            margin-top: 26px;
+            margin-left: 33%;
+            background-color: rgba(150, 150, 150, 0.75);
+            border: 0px solid #ccc;
+            border-radius: 10px;
+            /* padding-left: 23px; */
+            /* padding-top: 15px; */
+        }
+
+        .drop-container {
+            margin : 27px;
+            position: relative;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            weight: 100%;
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px dashed #555;
+            color: #444;
+            cursor: pointer;
+            transition: background .2s ease-in-out, border .2s ease-in-out;
+        }
+
+        .drop-container:hover {
+            background-color: rgba(150, 133, 143, 0.5);
+            border-color: grey;
+        }
+
+        .drop-container:hover .drop-title {
+            color: #222;
+        }
+
+        .drop-title {
+            color: #444;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            transition: color .2s ease-in-out;
+        }
+
+        #images {
+            width: 140px;
+            height: 24px;
+            font-size: 10px;
+            padding: 1px;
+        }
+
+        .box{
+            width: 210px;
+            height: 130px;
+            background-color: rgba(300, 300, 300, 0.5); 
+            border: 2px solid #ccc;
+            border-radius: 30px;
+        } 
+
+        .box_isi{
+            position: static;
+            width: 94%;
+            height: 25px;
+            top: 110;
+            background-color: rgba(300, 300, 300, 0.5);
+            border: 0px solid #ccc;
+            border-radius: 7px;
+            color: white;
+        }
+
+        .box_add{
+            position: relative;
+            width: 30%;
+            height: 5%;
+            margin-left: 12%;
+            margin-right: 2%;
+            top: 13px;
+            background-color: #96858F;
+            border: 0px solid #ccc;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 15px;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .box_list{
+            position: relative;
+            width: 97%;
+            height: 380px;
+            left: 2%;
+            right: 2%;
+            top: 65px;
+            background: #96858F;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+        .box_tenda{
+            position: relative;
+            width: 150px;
+            height: 35px;
+            left: 36.5%;
+            top: 18px;
+            margin-bottom: 10px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+        .hapus_edit{
+        
+        }
+
+        .tenda{
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .nama{
+            font-size: 10px;
+            margin-left: 15px;
+            font-family: 'Inter';
+            font-style: normal;
+        }
+
+        .panah{
+            position: relative;
+            width: 35px;
+            height: 35px;
+            left: 36.5%;
+            top: 18px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            text-align: center;
+            font-size:25px;
+        }
+
+        #text-input{
+            padding-left:7px;
+            color: black;
+            border:none;
+            font-size: 12px;
+        }
+        
+        .upload{
+            font-size:10px;
+            position: relative;
+            left: 24%;
+        }
+
+        .pencil{
+            margin-left: 77%;
+            top: 0%;
+            position: relative:
+        }
+
+
         /* chat */
         #before-chat {
             position: fixed;
@@ -491,6 +696,7 @@
         .header-link.active {
         text-decoration: underline;
         }
+        
     </style>
 
     <script>
