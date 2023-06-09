@@ -16,35 +16,41 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name'=> 'Admin',
-            'email'=> 'admin@gmail.com',
-            'password'=> Hash::make('password')
-        ]);
 
-        // $data = 
-        //     [
-               
-        //         'nama'=>'Aslan Bahri',
-        //         'email'=>'abe31hari@gmail.com',
-        //         'password' =>Hash::make('password')
-              
-        //     ];
-        //     [
-               
-        //         'nama'=>'Candra Dirajat',
-        //         'email'=>'moonsoonata@gmail.com',
-        //         'password' =>Hash::make('password')
-        //     ],
-        //     [
-               
-        //         'nama'=>'Edi Filayas',
-        //         'email'=>'Edi3Filayas@gmail.com',
-        //         'password' =>Hash::make('password')
-        //     ]
-        // ];
-        // DB::table('users')->insert($data);
-    
+        $data = [
+            [
+
+                'name'=> 'Admin',
+                'email'=> 'malangcamp@yahoo.com',
+                'password'=> Hash::make('password'),
+                'username'=> 'admin',
+                'phoneNumber'=> '085646547053',
+                'address'=> 'JL Ikan Lumba Lumba Residence Kav 9 Malang',
+                'photo_profile'=> 'static/image/AdminLTELogo.png',
+            ],
+            [
+
+                'name'=> 'Gofina April',
+                'email'=> '5fina4@gmail.com',
+                'password'=> Hash::make('password'),
+                'username'=> 'gofina-april',
+                'phoneNumber'=> '085646147053',
+                'address'=> 'Bandung',
+                'photo_profile'=> 'static/image/default_profile.png',
+            ],
+            [
+
+                'name'=> 'Dina Isnaeni',
+                'email'=> 'dina1snaeni@gmail.com',
+                'password'=> Hash::make('password'),
+                'username'=> 'dinaisnaeni',
+                'phoneNumber'=> '085646547812',
+                'address'=> 'Tepas',
+                'photo_profile'=> 'static/image/default_profile.png',
+            ],
+        ];
+        DB::table('users')->insert($data);
+
     }
 }
 

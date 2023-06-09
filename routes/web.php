@@ -81,4 +81,6 @@ Route::resource('kelolaBarang', KelolaBarangController::class);
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+
+// Route::get('password/reset/{token}', 'App\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// Route::post('password/reset', 'App\Http\Controllers\Auth\ResetPasswordController@reset')->name('password.update');
