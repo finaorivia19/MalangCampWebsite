@@ -31,6 +31,30 @@
             background: #332C33;
         }
 
+        .back-to-login img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 48px;
+        }
+
+        .back-to-login img:hover {
+            margin-left: 44px;
+        }
+
+        .back-to-register img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 32px;
+        }
+
+        .back-to-register img:hover {
+            margin-left: 28px;
+        }
+
         .box{
             display: grid;
             place-items: center;
@@ -116,8 +140,8 @@
         }
 
         .kolom-submit .signup-button:hover{
-            background:#332C33;
-            border: 2px solid #000000;
+            background:#AC608D;
+            border: 2px solid #96858F;
         }
 
         .logo{
@@ -141,12 +165,13 @@
             text-align: center;
         }
 
-        .text2-verif{
+        .text2-verif {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 200;
-            font-size: 3vh;
+            font-size: 12px;
             text-align: center;
+            margin-top: 8px;
         }
 
         .verification-input {
@@ -171,6 +196,8 @@
             font-size: 16px;
             padding: 5px;
             background-color:#D9D9D9;
+            border-radius: 8px;
+            box-shadow: 4px 0px 6px rgba(52, 52, 52, 0.25);
         }
 
         .code-boxes input[type="text"] {
@@ -192,6 +219,13 @@
             height: 10vh;
             width: 10vh;
             cursor: pointer;
+        }
+
+        .submitOTP .otp-button:hover {
+            #go-icon {
+                margin-left: 8px;
+                color: white;
+            }
         }
 
         .otp-button:hover{

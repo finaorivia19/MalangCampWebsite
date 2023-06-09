@@ -2,6 +2,9 @@
 @section('title', 'Sign Up')
 @section('content')
 <div class="box-form">
+    <a class="back-to-login" href="{{ route('login') }}">
+        <img src="{{asset('static/image/back-icon.png')}}" alt="back-icon">
+    </a>
     <div class="text">
         Sign Up Now
     </div>
