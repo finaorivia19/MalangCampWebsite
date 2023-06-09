@@ -36,8 +36,6 @@
 
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    
-
     <style>
         *{
             margin: 0;
@@ -393,10 +391,10 @@
         .box{
             width: 210px;
             height: 130px;
-            background-color: rgba(300, 300, 300, 0.5); 
+            background-color: rgba(300, 300, 300, 0.5);
             border: 2px solid #ccc;
             border-radius: 30px;
-        } 
+        }
 
         .box_isi{
             position: static;
@@ -450,7 +448,7 @@
             margin-right: 2%;
         }
         .hapus_edit{
-        
+
         }
 
         .tenda{
@@ -485,7 +483,7 @@
             border:none;
             font-size: 12px;
         }
-        
+
         .upload{
             font-size:10px;
             position: relative;
@@ -696,7 +694,7 @@
         .header-link.active {
         text-decoration: underline;
         }
-        
+
     </style>
 
     <script>

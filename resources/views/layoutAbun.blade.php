@@ -9,9 +9,11 @@
 
     {{-- font --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     {{-- icon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         *{
@@ -51,6 +53,10 @@
             border-radius: 26px;
         }
 
+        .box-form .text {
+            margin-top: -16px;
+        }
+
         .text{
             text-align: center;
             padding-top: 5vh;
@@ -63,7 +69,14 @@
 
         .kolom{
             text-align: center;
-            padding-top: 3vh;
+            padding-top: 2vh;
+        }
+
+        .kolom i {
+            margin-left: -30px;
+            cursor: pointer;
+            position: absolute;
+            margin-top: 14px;
         }
 
         .kolom input{
@@ -71,7 +84,7 @@
             margin: 0 auto;
             background: #D9D9D9;
             border-radius: 10px;
-            width: 75%;
+            width: 360px;
             height: 41px;
             font-family: 'Inter';
             font-style: normal;
@@ -100,6 +113,11 @@
             padding-left: 2vh;
             border: none;
             cursor: pointer;
+        }
+
+        .kolom-submit .signup-button:hover{
+            background:#332C33;
+            border: 2px solid #000000;
         }
 
         .logo{
@@ -155,7 +173,7 @@
             background-color:#D9D9D9;
         }
 
-        input[type="text"] {
+        .code-boxes input[type="text"] {
             border: none;
             outline: none;
             height: 10vh;
@@ -198,6 +216,30 @@
                 });
             }
         });
+
+        function knowPass() {
+            var password = $('#password').attr('type');
+            // console.log(password)
+            if (password === 'password') {
+                $('#password').attr('type', 'text');
+                $('#togglePassword').attr('class', 'fa fa-eye')
+            } else {
+                $('#password').attr('type', 'password');
+                $('#togglePassword').attr('class', 'fa fa-eye-slash')
+            }
+        }
+
+        function knowPassConfirm() {
+            var password = $('#password-confirm').attr('type');
+            // console.log(password)
+            if (password === 'password') {
+                $('#password-confirm').attr('type', 'text');
+                $('#togglePasswordConfirm').attr('class', 'fa fa-eye')
+            } else {
+                $('#password-confirm').attr('type', 'password');
+                $('#togglePasswordConfirm').attr('class', 'fa fa-eye-slash')
+            }
+        }
     </script>
 </head>
 <body>

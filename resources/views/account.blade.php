@@ -1,6 +1,7 @@
 @extends('layout')
 
-@section('title', 'Username')
+@section('title', Auth::user()->name)
+
 @section('content')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -17,7 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left:60vh ;">{{Auth::user()->username}} </h5>
 
-                       
+
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                     </div>
                 </div>
@@ -46,7 +47,7 @@
                                 </form>
                                 <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account" type="button">Update Account</a>
                         </center>
-                        
+
                         <br>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use App\Http\Controllers\KelolaBarangController;
 
 /*
@@ -38,6 +38,10 @@ Route::get('/live-chat', function () {
 Route::get('/coba', function () {
     return view('coba');
 })->middleware('auth');;
+
+Route::get('/otp', function () {
+    return view('otp');
+});
 
 Route::get('/update-account', function () {
     return view('updateAccount');
