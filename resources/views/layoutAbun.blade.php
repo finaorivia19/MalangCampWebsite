@@ -9,9 +9,11 @@
 
     {{-- font --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     {{-- icon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         *{
@@ -27,6 +29,30 @@
             height: 100vh;
 
             background: #332C33;
+        }
+
+        .back-to-login img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 48px;
+        }
+
+        .back-to-login img:hover {
+            margin-left: 44px;
+        }
+
+        .back-to-register img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 32px;
+        }
+
+        .back-to-register img:hover {
+            margin-left: 28px;
         }
 
         .box{
@@ -51,6 +77,10 @@
             border-radius: 26px;
         }
 
+        .box-form .text {
+            margin-top: -16px;
+        }
+
         .text{
             text-align: center;
             padding-top: 5vh;
@@ -63,7 +93,14 @@
 
         .kolom{
             text-align: center;
-            padding-top: 3vh;
+            padding-top: 2vh;
+        }
+
+        .kolom i {
+            margin-left: -30px;
+            cursor: pointer;
+            position: absolute;
+            margin-top: 14px;
         }
 
         .kolom input{
@@ -71,7 +108,7 @@
             margin: 0 auto;
             background: #D9D9D9;
             border-radius: 10px;
-            width: 75%;
+            width: 360px;
             height: 41px;
             font-family: 'Inter';
             font-style: normal;
@@ -102,6 +139,11 @@
             cursor: pointer;
         }
 
+        .kolom-submit .signup-button:hover{
+            background:#AC608D;
+            border: 2px solid #96858F;
+        }
+
         .logo{
             margin: 5vh;
             margin-left: 25vh;
@@ -123,12 +165,13 @@
             text-align: center;
         }
 
-        .text2-verif{
+        .text2-verif {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 200;
-            font-size: 3vh;
+            font-size: 12px;
             text-align: center;
+            margin-top: 8px;
         }
 
         .verification-input {
@@ -153,9 +196,11 @@
             font-size: 16px;
             padding: 5px;
             background-color:#D9D9D9;
+            border-radius: 8px;
+            box-shadow: 4px 0px 6px rgba(52, 52, 52, 0.25);
         }
 
-        input[type="text"] {
+        .code-boxes input[type="text"] {
             border: none;
             outline: none;
             height: 10vh;
@@ -174,6 +219,13 @@
             height: 10vh;
             width: 10vh;
             cursor: pointer;
+        }
+
+        .submitOTP .otp-button:hover {
+            #go-icon {
+                margin-left: 8px;
+                color: white;
+            }
         }
 
         .otp-button:hover{
@@ -198,6 +250,30 @@
                 });
             }
         });
+
+        function knowPass() {
+            var password = $('#password').attr('type');
+            // console.log(password)
+            if (password === 'password') {
+                $('#password').attr('type', 'text');
+                $('#togglePassword').attr('class', 'fa fa-eye')
+            } else {
+                $('#password').attr('type', 'password');
+                $('#togglePassword').attr('class', 'fa fa-eye-slash')
+            }
+        }
+
+        function knowPassConfirm() {
+            var password = $('#password-confirm').attr('type');
+            // console.log(password)
+            if (password === 'password') {
+                $('#password-confirm').attr('type', 'text');
+                $('#togglePasswordConfirm').attr('class', 'fa fa-eye')
+            } else {
+                $('#password-confirm').attr('type', 'password');
+                $('#togglePasswordConfirm').attr('class', 'fa fa-eye-slash')
+            }
+        }
     </script>
 </head>
 <body>

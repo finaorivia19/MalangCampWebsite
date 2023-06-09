@@ -36,8 +36,6 @@
 
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    
-
     <style>
         *{
             margin: 0;
@@ -393,10 +391,10 @@
         .box{
             width: 210px;
             height: 130px;
-            background-color: rgba(300, 300, 300, 0.5); 
+            background-color: rgba(300, 300, 300, 0.5);
             border: 2px solid #ccc;
             border-radius: 30px;
-        } 
+        }
 
         .box_isi{
             position: static;
@@ -450,7 +448,7 @@
             margin-right: 2%;
         }
         .hapus_edit{
-        
+
         }
 
         .tenda{
@@ -485,7 +483,7 @@
             border:none;
             font-size: 12px;
         }
-        
+
         .upload{
             font-size:10px;
             position: relative;
@@ -696,7 +694,7 @@
         .header-link.active {
         text-decoration: underline;
         }
-        
+
     </style>
 
     <script>
@@ -820,10 +818,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="mt-3 pb-3 mb-3 text-center">
                     <div>
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2 photo-profile"
+                        <img src="{{asset(Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                             alt="User Image" href="/account">
                         <a href="/account" class="d-block mt-2 text-white">
-                            <h6 id="username">Alexander Pierce</h6>
+                            <h6 id="username">{{Auth::user()->name}}</h6>
                         </a>
                     </div>
                     <hr color="white" />
