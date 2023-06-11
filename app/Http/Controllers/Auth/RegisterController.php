@@ -8,6 +8,11 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Mail\OtpMail;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -67,8 +72,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $photo = 'static/image/default_profile.png';
+
+        // Membuat OTP
+        $otpCode = Str::random(6);
+        $otpExpired = now()->addMinutes(1);
 
         return User::create([
             'name' => $data['name'],
@@ -78,6 +86,45 @@ class RegisterController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'address' => $data['address'],
             'photo_profile' => $photo,
+            'otp_code' => $otpCode,
+            'otp_expired' => $otpExpired,
         ]);
+    }
+
+    public function register(Request $request) {
+
+        $user_temp = User::where('email', $request['email'])->first();
+
+        if ($user_temp) {
+            if (!$user_temp->email_verified_at) {
+                $user_temp->delete();
+            }
+        }
+
+        $photo = 'static/image/default_profile.png';
+
+        // Membuat OTP
+        $otpCode = Str::random(6);
+        $otpExpired = Carbon::now()->addMinutes(1);
+
+        $this->validator($request->all())->validate();
+
+        // Create User
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'username' => $request['username'],
+            'phoneNumber' => $request['phoneNumber'],
+            'address' => $request['address'],
+            'photo_profile' => $photo,
+            'otp_code' => $otpCode,
+            'otp_expired' => $otpExpired,
+        ]);
+
+        // Kirim OTP ke email user
+        Mail::to($user->email)->send(new OtpMail($otpCode));
+
+        return view('verification')->with('email', $user->email);
     }
 }

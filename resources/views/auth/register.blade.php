@@ -9,7 +9,7 @@
         Sign Up Now
     </div>
     <div class="form-signup">
-        <form action="{{ route('register') }}" method="POST">
+        <form action="{{ route('register-otp') }}" method="POST">
             @csrf
             <div class="kolom">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Your Name" required autocomplete="name" autofocus>

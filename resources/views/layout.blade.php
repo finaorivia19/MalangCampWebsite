@@ -29,11 +29,12 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+    {{-- google font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Charmonman&display=swap" rel="stylesheet">
 
-
+    {{-- jquery --}}
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
@@ -728,6 +729,12 @@
                         $(this).addClass('active');
                     }
                 }
+            });
+
+            // Delete Account
+            $('#confirmDeleteButton').click(function () {
+                $('#deleteForm').submit(); // Submit form when delete button is clicked
+                $('#confirmDeleteModal').modal('hide'); // Close modal
             });
         });
 

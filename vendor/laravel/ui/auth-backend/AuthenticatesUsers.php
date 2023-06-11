@@ -6,6 +6,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OtpMail;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 trait AuthenticatesUsers
 {
@@ -130,6 +134,19 @@ trait AuthenticatesUsers
     protected function authenticated(Request $request, $user)
     {
         //
+        if ($user->email_verified_at === null) {
+            $otpCode = Str::random(6);
+            $otpExpired = Carbon::now()->addMinutes(1);
+
+            $user->otp_code = $otpCode;
+            $user->otp_expired = $otpExpired;
+            $user->save();
+
+            // Kirim OTP ke email user
+            Mail::to($user->email)->send(new OtpMail($otpCode));
+
+            return view('verification')->with('email', $user->email);
+        }
     }
 
     /**

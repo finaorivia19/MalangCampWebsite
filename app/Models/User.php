@@ -30,6 +30,8 @@ class User extends Authenticatable
         'phoneNumber',
         'address',
         'photo_profile',
+        'otp_code',
+        'otp_expired',
     ];
 
     /**
@@ -49,5 +51,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'otp_expired' => 'datetime',
     ];
 }
