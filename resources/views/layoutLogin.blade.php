@@ -9,6 +9,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    {{-- jquery --}}
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <style>
         *{
             margin: 0;
@@ -85,8 +88,19 @@
             padding-left: 2vh;
             border: none;
         }
-
     </style>
+
+    <script>
+        $(document).ready(function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var successMessage = urlParams.get('success');
+
+            if (successMessage) {
+                // Menampilkan pesan sukses menggunakan alert
+                alert(successMessage);
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
