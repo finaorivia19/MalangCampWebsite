@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OTPController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,46 +21,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// })->middleware('auth');
+Auth::routes();
 
 Route::get('/', function () {
     return view('index');
-});
+})->middleware('auth');
 
 Route::get('/account', function () {
     return view('account');
+})->middleware('auth');;
 
 Route::get('/live-chat', function () {
     return view('live-chat');
-});
-
-Route::get('/coba', function () {
-    return view('coba');
-});
+})->middleware('auth');;
 
 Route::get('/update-account', function () {
     return view('updateAccount');
-});
+})->middleware('auth');;
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/verification', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+Route::get('/home', function () {
+    return redirect('/');
+})->name('home');
 
 Route::get('/contact-us', function () {
     return view('contactUs');
-});
+})->middleware('auth');;
 
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::delete('/data/{id}', [DataController::class, 'destroy'])->name('data.destroy')->middleware('auth');
 
-// Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-// Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
+Route::resource('kelolaBarang', KelolaBarangController::class);
 
-Auth::routes();
+// Route::get('/kelolaBarang', [App\Http\Controllers\KelolaBarangController::class, 'kelolaBarang'])->name('keloalaBarang');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::post('/kelolaBarang', [KelolaBarangController::class, 'kelolaBarang']);
+
+Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
+
+Route::get('/otp', [OTPController::class, 'show'])->name('verification-get');
+Route::post('/otp', [OTPController::class, 'verify'])->name('verification-post');
+
+// Route::get('otp', function () {
+//     return view('otp');
+// });
