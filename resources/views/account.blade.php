@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left:60vh ;">{{Auth::user()->username}} </h5>
 
-                       
+
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                     </div>
                 </div>
@@ -34,19 +34,33 @@
                         <div class="card-body">
                             <h5 style="line-height:1,5; word-spacing:9px; display:inline;">Email
                                 Address : {{Auth::user()->email}}</p><br>
-                            <h5 style="line-height:3; word-spacing:5px;">Phone Number : {{Auth::user()->phoneNumber}}
-                            </h5> <br>
-                            <h5 style="line-height:3; word-spacing:12px;">Your Address : {{Auth::user()->address}}</h5>
+                                <h5 style="line-height:3; word-spacing:5px;">Phone Number :
+                                    {{Auth::user()->phoneNumber}}
+                                </h5> <br>
+                                <h5 style="line-height:3; word-spacing:12px;">Your Address : {{Auth::user()->address}}
+                                </h5>
                         </div>
                         <center style="">
-                            <button type="button" class="btn btn-outline-light" style="background-color:#AC608D;">Delete Account</button>
-                                <form action="" method="DELETE">
-                                @csrf
-                                  @method('DELETE')
-                                </form>
-                                <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account" type="button">Update Account</a>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-light"
+                                            style="background-color:#AC608D;">Delete Account</button>
+                                        <form action="" method="DELETE">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-outline-light" style="background-color:#673A54;"
+                                            href="update-account" type="button">Update Account</a>
+                                    </td>
+                                </tr>
+                            </table>>
+
+
                         </center>
-                        
+
                         <br>
                     </div>
                 </div>

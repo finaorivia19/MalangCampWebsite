@@ -14,7 +14,7 @@
             background: #fff;
             border-radius: 10px;
             width: 77%;
-            height: 41px;
+            height: 30px;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 100;
@@ -35,7 +35,7 @@
 
                     <div class="update-foto">
                         Foto Profil
-                        <input id="name" type="file" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:18vh; border:none; width:18vh; height:18vh; border-radius:18px">
+                        <input id="name" type="file" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="" {{--required autocomplete="name" autofocus--}} style="margin-left:18vh; border:none; width:18vh; height:18vh; border-radius:18px;">
 
                         {{-- @error('name')
                         <span class="invalid-feedback" role="alert">

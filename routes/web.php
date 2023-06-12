@@ -41,6 +41,10 @@ Route::get('/update-account', function () {
     return view('updateAccount');
 })->middleware('auth');;
 
+Route::get('/update-account2', function () {
+    return view('updateAccount2');
+})->middleware('auth');;
+
 Route::get ('/lupaPassword', function () {
     return view('lupaPassword');
 });

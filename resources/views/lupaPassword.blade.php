@@ -34,7 +34,7 @@
                     @csrf
 
                     <div class="kolom">
-                                <input id="email" placeholder="Email Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus style="background:white; margin-bottom:30px; outline:0;">
+                                <input id="email" placeholder="Password Baru" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus style="background:white; margin-bottom:30px; outline:0;">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
 
                         <div class="kolom">
                             <div class="col-md-6">
-                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" style="background:white;outline:0;margin-bottom:30px;">
+                                <input id="Confirm Password" placeholder="Confirm Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" style="background:white;outline:0;margin-bottom:30px;">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
