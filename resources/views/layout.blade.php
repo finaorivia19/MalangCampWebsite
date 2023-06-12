@@ -29,14 +29,13 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+    {{-- google font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Charmonman&display=swap" rel="stylesheet">
 
-
+    {{-- jquery --}}
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    
 
     <style>
         *{
@@ -393,10 +392,10 @@
         .box{
             width: 210px;
             height: 130px;
-            background-color: rgba(300, 300, 300, 0.5); 
+            background-color: rgba(300, 300, 300, 0.5);
             border: 2px solid #ccc;
             border-radius: 30px;
-        } 
+        }
 
         .box_isi{
             position: static;
@@ -450,7 +449,7 @@
             margin-right: 2%;
         }
         .hapus_edit{
-        
+
         }
 
         .tenda{
@@ -485,7 +484,7 @@
             border:none;
             font-size: 12px;
         }
-        
+
         .upload{
             font-size:10px;
             position: relative;
@@ -696,7 +695,7 @@
         .header-link.active {
         text-decoration: underline;
         }
-        
+
     </style>
 
     <script>
@@ -730,6 +729,12 @@
                         $(this).addClass('active');
                     }
                 }
+            });
+
+            // Delete Account
+            $('#confirmDeleteButton').click(function () {
+                $('#deleteForm').submit(); // Submit form when delete button is clicked
+                $('#confirmDeleteModal').modal('hide'); // Close modal
             });
         });
 
@@ -820,10 +825,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="mt-3 pb-3 mb-3 text-center">
                     <div>
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2 photo-profile"
+                        <img src="{{asset(Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                             alt="User Image" href="/account">
                         <a href="/account" class="d-block mt-2 text-white">
-                            <h6 id="username">Alexander Pierce</h6>
+                            <h6 id="username">{{Auth::user()->name}}</h6>
                         </a>
                     </div>
                     <hr color="white" />
