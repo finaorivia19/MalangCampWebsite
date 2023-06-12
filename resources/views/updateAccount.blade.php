@@ -104,7 +104,7 @@
                 <h6 class="mb-4 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h6>
                 <h5 class="mb-3 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h5>
                 <h6 class="mb-4 card-title" style="height:23px; width: 400px; background-color:white; border-radius:10px; padding-left:8px;"></h6> -->
-                
+
                     <div class="button-cncl-updt" style="margin-left:20vh">
                         <a href="account" class="btn btn-outline-light"style="background-color:#AC608D;">Cancel</a>
                         <a href="account" type="button" class="btn btn-outline-light"style="background-color:#673A54;">Update</a>

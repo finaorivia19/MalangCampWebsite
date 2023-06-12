@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{asset('static/image/malang-camp-logo-1.png')}}">
+
+    <title>Malang Camp</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -15,14 +17,50 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
+
+    <style>
+        body {
+            background-image: url('{{asset('static/image/main-background-all.png')}}');
+            background-size: cover;
+        }
+
+        .btn {
+            background: #96858F;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #AC608D;
+            color: white;
+        }
+
+        .card-header {
+            background: #96858F;
+            color: white;
+        }
+
+        .detail-email {
+            text-align: center;
+            color: #96858F;
+            font-style: italic;
+        }
+
+        #logo {
+            width: 32px;
+            height: 32px;
+            margin: 16px
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <img src="{{asset('static/image/malang-camp-logo-2.png')}}" alt="malang-camp-logo" id="logo">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Malang Camp
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
