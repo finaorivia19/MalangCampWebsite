@@ -301,11 +301,14 @@
             animation-delay: 0.3s;
         }
 
-        .utama{
+        /* kelola_barangs */
 
+        .utama{
+        
         }
         .box_kelola{
             position: relative;
+            /* display:flex; */
             width: 30%;
             height: 50%;
             margin-left: 2%;
@@ -321,9 +324,7 @@
             position: relative;
             width: 131px;
             height: 16px;
-            left: 31%;
-            top: 15px;
-
+            top: 13px;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
@@ -333,14 +334,17 @@
             align-items: center;
             text-align: center;
             color: #000000;
+            margin-left:30%;
         }
 
         .box_foto{
             position: relative;
             width: 95px;
             height: 95px;
-            margin-top: 26px;
-            margin-left: 33%;
+            margin-top: 30px;
+            margin-left: 30%;
+            margin-right: 28%;
+            margin-bottom:5px;
             background-color: rgba(150, 150, 150, 0.75);
             border: 0px solid #ccc;
             border-radius: 10px;
@@ -349,7 +353,10 @@
         }
 
         .drop-container {
-            margin : 27px;
+            margin-top : 27px;
+            margin-left : 27px;
+            margin-right : 27px;
+            margin-bottom : 10px;
             position: relative;
             display: flex;
             gap: 10px;
@@ -399,22 +406,27 @@
         } 
 
         .box_isi{
-            position: static;
+            /* position: static; */
             width: 94%;
             height: 25px;
             top: 110;
             background-color: rgba(300, 300, 300, 0.5);
             border: 0px solid #ccc;
             border-radius: 7px;
-            color: white;
+            color: black;
+            padding-left:5px;
+        }
+
+        .isi{
+            padding-top :5px;
         }
 
         .box_add{
             position: relative;
-            width: 30%;
+            width: 40%;
             height: 5%;
-            margin-left: 12%;
-            margin-right: 2%;
+            margin-left: 5%;
+            margin-right: 1%;
             top: 13px;
             background-color: #96858F;
             border: 0px solid #ccc;
@@ -427,7 +439,7 @@
         .box_list{
             position: relative;
             width: 97%;
-            height: 380px;
+            height: 490px;
             left: 2%;
             right: 2%;
             top: 65px;
@@ -435,11 +447,28 @@
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
         }
+
+        .box_listTam{
+            position: relative;
+            width: 97%;
+            height: 435px;
+            left: 2%;
+            right: 2%;
+            top: 35px;
+            background: #96858F;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        label {
+            margin-bottom: 0px; /* Memberikan jarak antara label dengan elemen berikutnya */
+        }
+
         .box_tenda{
             position: relative;
             width: 150px;
             height: 35px;
-            left: 36.5%;
+            left: 39.5%;
             top: 18px;
             margin-bottom: 10px;
             text-align:center;
@@ -447,8 +476,10 @@
             opacity: 0.6;
             border-radius: 10px;
             margin-left: 2%;
-            margin-right: 2%;
+            margin-right: 6%;
+            padding-right:10%;
         }
+
         .hapus_edit{
         
         }
@@ -469,8 +500,8 @@
             position: relative;
             width: 35px;
             height: 35px;
-            left: 36.5%;
-            top: 18px;
+            left: 90%;
+            top: 60px;
             text-align:center;
             background: #FFFFFF;
             opacity: 0.6;
@@ -486,19 +517,6 @@
             font-size: 12px;
         }
         
-        .upload{
-            font-size:10px;
-            position: relative;
-            left: 24%;
-        }
-
-        .pencil{
-            margin-left: 77%;
-            top: 0%;
-            position: relative:
-        }
-
-
         /* chat */
         #before-chat {
             position: fixed;
@@ -696,7 +714,7 @@
         .header-link.active {
         text-decoration: underline;
         }
-        
+
     </style>
 
     <script>
