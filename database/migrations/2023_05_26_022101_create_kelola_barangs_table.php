@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String('nama_item', 20)->nullable();
             $table->integer('stok')->nullable();
             $table->String('jenis',20)->nullable();
+            $table->String('keterangan')->nullable();
             $table->integer('harga')->nullable();
             $table->string('gambar')->nullable();
         });
