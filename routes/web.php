@@ -35,6 +35,10 @@ Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name(
 
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('cart');
 
+Route::get('/kelolaPesanan', [App\Http\Controllers\PesananController::class, 'show'])->name('kelolaPesanan');
+
+Route::get('/laporanTransaksi', [App\Http\Controllers\TransaksiController::class, 'show'])->name('laporanTransaksi');
+
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
 Auth::routes();

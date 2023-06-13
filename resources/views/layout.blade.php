@@ -401,6 +401,44 @@
             border: none;
         }
 
+        .box-kelolaPesanan{
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 3vh;
+            background-color: #96858F;
+            border-radius: 18px;
+        }
+
+        .box-kelolaPesanan table tbody tr td{
+            padding-left: 2vh;
+            margin-left: 3vh;
+        }
+
+        .kolom-bawah{
+            display: flexbox;
+            width: 100%;
+        }
+
+
+        .kolom-bawah .tombol{
+            margin-left: 77%;
+        }
+
+        .kolom-bawah .tombol .payment{
+            display: inline-block;
+        }
+
+        .kolom-bawah .tombol .konfirmasi{
+            display: inline-block;
+            margin-left: 1vh;
+            margin-bottom: 2vh;
+        }
+
+        tbody tr td{
+            width: 20%;
+        }
+
+
     </style>
 
     <script>

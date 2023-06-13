@@ -6,7 +6,9 @@
             <h3 style="color: black; text-align:center; padding-top: 1vh"><b>Cart Pesanan</b></h3>
                 <div class="content-cart" style="display:flex; width:100%; height:100%">
                     <div class="left-box-cart">
-
+                        <form action="" method="POST" enctype="">
+                            @csrf
+                        </form>
                     </div>
                     <div class="right-box-cart">
                         <div class="content-right-box-cart" >
