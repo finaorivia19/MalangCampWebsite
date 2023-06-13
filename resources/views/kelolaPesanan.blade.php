@@ -43,6 +43,7 @@
                         <button class="konf" style="background: #FFFFFF;
                         border-radius: 18px; font-family: 'ABeeZee';font-style: normal;
                         color: #000000; border:none;">konfirmasi</button>
+                        {{-- p --}}
                     </div>
                 </div>
             </div>
