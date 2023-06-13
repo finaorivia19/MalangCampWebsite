@@ -6,6 +6,7 @@ use App\Models\Paket;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class PaketController extends Controller
 {
     /**
@@ -15,9 +16,9 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $paket = Paket::all();
-        // $posts = Paket::orderBy()
-        return view('paket', compact('paket'));
+        $Pakets = Paket::with('kelola_barangs')->get();
+        // dd($Pakets);
+        return view('paket', compact('Pakets'));
     }
 
     /**
@@ -47,9 +48,10 @@ class PaketController extends Controller
      * @param  \App\Models\Paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function show(Paket $paket)
+    public function show($paket_id)
     {
-        //
+        $Paket = Paket::find($paket_id);
+        return view('paketDetail', compact('Paket'));
     }
 
     /**

@@ -18,14 +18,17 @@ class PaketSeeder extends Seeder
         $data = [
             [
                 'nama_paket'=>'Hemat A',
+                'harga_paket'=> 275000,
                 'image_paket'=>'static/image/paketTenda.jpg'
             ],
             [
                 'nama_paket'=>'Hemat B',
+                'harga_paket'=> 380000,
                 'image_paket'=>'static/image/paketTenda.jpg'
             ],
             [
                 'nama_paket'=>'Hemat C',
+                'harga_paket'=> 325000,
                 'image_paket'=>'static/image/paketTenda.jpg'
             ]
         ];

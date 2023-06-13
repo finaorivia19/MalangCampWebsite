@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\PaketController;
+use App\Http\Controllers\PaketController;
 use Illuminate\Http\Request; 
 use App\Http\Controllers\KelolaBarangController;
 /*
@@ -54,16 +54,16 @@ Route::get('/kelolaPaket', function () {
     return view('kelolaPaket');
 });
 
+Route::get('/paketDetail', function () {
+    return view('paketDetail');
+});
+
 Route::get('/updatePaket', function () {
     return view('updatePaket');
 });
 
 Route::get('/tambahPaket', function () {
     return view('tambahPaket');
-});
-
-Route::get('/paket', function () {
-    return view('paket');
 });
 
 // Auth::routes();
@@ -90,7 +90,7 @@ Route::resource('kelolaBarang', KelolaBarangController::class);
 
 Auth::routes();
 
-// Route::resource('paket', PaketController::class);
+Route::resource('paket', PaketController::class);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();

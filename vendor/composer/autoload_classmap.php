@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DataController' => $baseDir . '/app/Http/Controllers/DataController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\KelolaBarangController' => $baseDir . '/app/Http/Controllers/KelolaBarangController.php',
     'App\\Http\\Controllers\\PaketController' => $baseDir . '/app/Http/Controllers/PaketController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -29,12 +30,9 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
-
+    'App\\Models\\KelolaBarang' => $baseDir . '/app/Models/KelolaBarang.php',
     'App\\Models\\KelolaBarangsPaket' => $baseDir . '/app/Models/KelolaBarangsPaket.php',
     'App\\Models\\Paket' => $baseDir . '/app/Models/Paket.php',
-
-    'App\\Models\\KelolaBarang' => $baseDir . '/app/Models/KelolaBarang.php',
-
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
@@ -153,11 +151,10 @@ return array(
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
-
+    'Database\\Seeders\\KelolaBarangSeeder' => $baseDir . '/database/seeders/KelolaBarangSeeder.php',
+    'Database\\Seeders\\KelolaBarangsPaketSeeder' => $baseDir . '/database/seeders/KelolaBarangsPaketSeeder.php',
     'Database\\Seeders\\PaketSeeder' => $baseDir . '/database/seeders/PaketSeeder.php',
-
     'Database\\Seeders\\UserSeeder' => $baseDir . '/database/seeders/UserSeeder.php',
-
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
     'DeepCopy\\Exception\\PropertyException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

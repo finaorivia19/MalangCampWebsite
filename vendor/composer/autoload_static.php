@@ -535,6 +535,7 @@ class ComposerStaticInit03c9edd51cc774aca45bfad24a9b7785
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DataController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\KelolaBarangController' => __DIR__ . '/../..' . '/app/Http/Controllers/KelolaBarangController.php',
         'App\\Http\\Controllers\\PaketController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaketController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -546,10 +547,9 @@ class ComposerStaticInit03c9edd51cc774aca45bfad24a9b7785
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-
+        'App\\Models\\KelolaBarang' => __DIR__ . '/../..' . '/app/Models/KelolaBarang.php',
         'App\\Models\\KelolaBarangsPaket' => __DIR__ . '/../..' . '/app/Models/KelolaBarangsPaket.php',
         'App\\Models\\Paket' => __DIR__ . '/../..' . '/app/Models/Paket.php',
-        'App\\Models\\KelolaBarang' => __DIR__ . '/../..' . '/app/Models/KelolaBarang.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -668,11 +668,10 @@ class ComposerStaticInit03c9edd51cc774aca45bfad24a9b7785
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
-
+        'Database\\Seeders\\KelolaBarangSeeder' => __DIR__ . '/../..' . '/database/seeders/KelolaBarangSeeder.php',
+        'Database\\Seeders\\KelolaBarangsPaketSeeder' => __DIR__ . '/../..' . '/database/seeders/KelolaBarangsPaketSeeder.php',
         'Database\\Seeders\\PaketSeeder' => __DIR__ . '/../..' . '/database/seeders/PaketSeeder.php',
-
         'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
-
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

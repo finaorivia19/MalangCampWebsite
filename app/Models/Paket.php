@@ -21,4 +21,8 @@ class Paket extends Model
         'nama_paket',
         'image_paket',
         ];
+
+        public function kelola_barangs() {
+            return $this->belongsToMany(KelolaBarang::class, "kelola_barangs_paket", "id_item", "paket_id");
+        }
 }
