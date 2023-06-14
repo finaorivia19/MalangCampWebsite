@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="icon" href="{{asset('static/image/malang-camp-logo-1.png')}}">
     <title>@yield('title') | Malang Camp</title>
 
@@ -38,10 +41,11 @@
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
+
         #brand {
             font-family: 'Charmonman', cursive;
             font-style: normal;
@@ -300,10 +304,9 @@
             animation-delay: 0.3s;
         }
 
-        .utama{
+        .utama {}
 
-        }
-        .box_kelola{
+        .box_kelola {
             position: relative;
             width: 30%;
             height: 50%;
@@ -316,7 +319,7 @@
             border-radius: 30px;
         }
 
-        .text{
+        .text {
             position: relative;
             width: 131px;
             height: 16px;
@@ -334,7 +337,7 @@
             color: #000000;
         }
 
-        .box_foto{
+        .box_foto {
             position: relative;
             width: 95px;
             height: 95px;
@@ -348,7 +351,7 @@
         }
 
         .drop-container {
-            margin : 27px;
+            margin: 27px;
             position: relative;
             display: flex;
             gap: 10px;
@@ -389,7 +392,7 @@
             padding: 1px;
         }
 
-        .box{
+        .box {
             width: 210px;
             height: 130px;
             background-color: rgba(300, 300, 300, 0.5);
@@ -397,7 +400,7 @@
             border-radius: 30px;
         }
 
-        .box_isi{
+        .box_isi {
             position: static;
             width: 94%;
             height: 25px;
@@ -408,7 +411,7 @@
             color: white;
         }
 
-        .box_add{
+        .box_add {
             position: relative;
             width: 30%;
             height: 5%;
@@ -423,7 +426,7 @@
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
         }
 
-        .box_list{
+        .box_list {
             position: relative;
             width: 97%;
             height: 380px;
@@ -434,64 +437,64 @@
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
         }
-        .box_tenda{
+
+        .box_tenda {
             position: relative;
             width: 150px;
             height: 35px;
             left: 36.5%;
             top: 18px;
             margin-bottom: 10px;
-            text-align:center;
+            text-align: center;
             background: #FFFFFF;
             opacity: 0.6;
             border-radius: 10px;
             margin-left: 2%;
             margin-right: 2%;
         }
-        .hapus_edit{
 
-        }
+        .hapus_edit {}
 
-        .tenda{
+        .tenda {
             margin-left: 5%;
             margin-right: 5%;
         }
 
-        .nama{
+        .nama {
             font-size: 10px;
             margin-left: 15px;
             font-family: 'Inter';
             font-style: normal;
         }
 
-        .panah{
+        .panah {
             position: relative;
             width: 35px;
             height: 35px;
             left: 36.5%;
             top: 18px;
-            text-align:center;
+            text-align: center;
             background: #FFFFFF;
             opacity: 0.6;
             border-radius: 10px;
             text-align: center;
-            font-size:25px;
+            font-size: 25px;
         }
 
-        #text-input{
-            padding-left:7px;
+        #text-input {
+            padding-left: 7px;
             color: black;
-            border:none;
+            border: none;
             font-size: 12px;
         }
 
-        .upload{
-            font-size:10px;
+        .upload {
+            font-size: 10px;
             position: relative;
             left: 24%;
         }
 
-        .pencil{
+        .pencil {
             margin-left: 77%;
             top: 0%;
             position: relative:
@@ -557,8 +560,8 @@
             padding-top: 8px;
         }
 
-        #header-chat #minimize-chat{
-            padding-left: 100px;
+        #header-chat #minimize-chat {
+            padding-left: 32px;
             padding-right: 16px;
         }
 
@@ -568,10 +571,18 @@
         }
 
         #choose-user .form-select {
-            background-color: #673A54;
+            background-color: #834c6c;
             border: none;
             color: white;
             font-family: 'ABeeZee', sans-serif;
+            width: 128px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+            padding: 2px;
+            outline: 0;
         }
 
         #footer-chat {
@@ -593,9 +604,14 @@
             padding-top: 6px;
         }
 
-        #chat-text, #send-chat {
+        #chat-text,
+        #send-chat {
             padding-right: 8px;
             padding-left: 8px;
+        }
+
+        #chat-text input {
+            outline: 0;
         }
 
         #footer-chat img {
@@ -616,6 +632,8 @@
             padding: 2.5px 6px 2.5px 6px;
             border-radius: 50%;
             box-shadow: 0 3px 8px rgb(0, 0, 0, 0.4);
+            cursor: pointer;
+            display: none;
         }
 
         #send-chat:hover {
@@ -645,7 +663,8 @@
             margin-top: 4px;
         }
 
-        #sender img, #receiver img{
+        #sender img,
+        #receiver img {
             width: 24px;
             height: 24px;
         }
@@ -670,12 +689,12 @@
             max-width: 192px;
         }
 
-        #maximize-chat a img:hover{
+        #maximize-chat a img:hover {
             width: 26px;
             height: 26px;
         }
 
-        #minimize-chat img:hover{
+        #minimize-chat img:hover {
             width: 22px;
             height: 22px;
         }
@@ -689,17 +708,20 @@
         } */
 
         .header-link {
-        text-decoration: none;
+            text-decoration: none;
         }
 
         .header-link.active {
-        text-decoration: underline;
+            text-decoration: underline;
         }
 
     </style>
 
     <script>
-        var enabled = false;
+        const loginId = {{ Auth::user() -> id}};
+        const userProfile = '{{ Auth::user()->photo_profile }}';
+
+        let enabled = false;
 
         $(document).ready(function () {
             var pageTitle = "@yield('title')";
@@ -718,7 +740,7 @@
             // Mendapatkan URL saat ini
             var currentUrl = window.location.href;
             // Mencari tautan header yang sesuai dengan URL saat ini
-            $('.header-link').each(function() {
+            $('.header-link').each(function () {
                 var linkUrl = $(this).attr('href');
                 var shortUrl = linkUrl.split('/');
                 // console.log(shortUrl);
@@ -756,23 +778,12 @@
                 $('#username').show();
                 enabled = false;
             }
-
-        }
-
-        function closeChat() {
-            $('#after-chat').hide();
-            $('#before-chat').show();
-        }
-
-        function openChat() {
-            $('#before-chat').hide();
-            $('#after-chat').show();
         }
     </script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+    <div class="wrapper" onclick="closeChat()">
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm">
@@ -860,19 +871,19 @@
 
                             <!-- SidebarSearch Form -->
                             <div class="container">
-                                <input class="main shadow" placeholder="Search"/><span class="searchicon"></span>
+                                <input class="main shadow" placeholder="Search" /><span class="searchicon"></span>
                             </div>
 
                         </div><!-- /.col -->
                         <div class="col">
                             <ol class="breadcrumb float-sm-right">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                               </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -912,56 +923,63 @@
                 <tr id="header-chat">
                     <td id="choose-user">
                         <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>User 1 (5)</option>
-                            <option value="2">User 2 (0)</option>
-                            <option value="3">User 3 (1)</option>
-                          </select>
+                            @if (Auth::user()->id > 1)
+
+                            <option value={{ $users->id }} selected><strong>(5) </strong><span>{{ $users->name }}</span>
+                            </option>
+
+                            @elseif (Auth::user()->id == 1)
+
+                            @foreach ($users as $user)
+
+                            <option value={{ $user->id }} selected><strong>(5) </strong><span>{{ $user->name }}</span>
+                            </option>
+
+                            @endforeach
+
+                            @endif
+                        </select>
                     </td>
                     <td id="minimize-chat" onclick="closeChat()">
                         <img src="{{asset('static/image/minimize-2-icon.png')}}" alt="minimize-icon">
                     </td>
                     <td id="maximize-chat">
-                        <a href="/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}" alt="maximize-icon"></a>
+                        <a href="/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}"
+                                alt="maximize-icon"></a>
                     </td>
                 </tr>
             </table>
-            <table id="content-chat">
-                <tr>
-                    <table id="receiver">
-                        <tr>
-                            <td>
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="receiver-img">
-                            </td>
-                            <td id="chat-receiver">
-                                Selamat Siang
-                            </td>
-                        </tr>
-                    </table>
-                </tr>
-                <br>
-                <tr>
-                    <table id="sender">
-                        <tr>
-                            <td id="chat-sender">
-                                Selamat Siang
-                            </td>
-                            <td>
-                                <img src="dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="sender-img">
-                            </td>
-                        </tr>
-                    </table>
-                </tr>
-                <br>
-            </table>
+            <div id="content-chat">
+                <table id="receiver">
+                    <tr>
+                        <td>
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="receiver-img">
+                        </td>
+                        <td id="chat-receiver">
+                            Selamat Siang
+                        </td>
+                    </tr>
+                </table>
+                <table id="sender">
+                    <tr>
+                        <td id="chat-sender">
+                            Selamat Siang
+                        </td>
+                        <td>
+                            <img src="dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="sender-img">
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <table>
                 <tr id="footer-chat">
                     <td>
                         <div id="chat-text">
-                            <input type="text" placeholder="Type message">
+                            <input id="chat-input" type="text" placeholder="Type message" oninput="checkInputChat()">
                         </div>
                     </td>
                     <td>
-                        <div id="send-chat">
+                        <div id="send-chat" onclick="sendChat()">
                             <img src="{{asset('static/image/send-icon.png')}}" alt="send-icon">
                         </div>
                     </td>
@@ -1005,6 +1023,8 @@
     {{-- <script src="dist/js/demo.js"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+
+    <script src="{{asset('static/js/live-chat.js')}}"></script>
 </body>
 
 </html>
