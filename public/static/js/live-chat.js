@@ -26,12 +26,21 @@ $(document).ready(function () {
     });
 
     // Tampilkan chat
-    showChat();
+    showChat('show');
 
     // Jalankan fungsi dengan dropdown
     $('.form-select').change(function() {
-        showChat();
+        showChat('show');
     });
+
+    // Polling CheckChat
+    setInterval(function() {
+        showChat('check');
+    }, 8000);
+
+    // Draggabel chat
+    // $('#before-chat').draggable();
+    // $('#after-chat').draggable();
 });
 
 function closeChat() {
@@ -69,6 +78,11 @@ function sendChat() {
         data: data,
         success: function(response) {
             // console.log(response);
+            let chat = response['data'];
+            document.cookie = "last-chat=" + chat['chat_id'];
+
+            // console.log(document.cookie);
+
             $('#chat-input').val('');
             $('#send-chat').css('display', 'none');
             addNewChat(data);
@@ -78,7 +92,7 @@ function sendChat() {
     });
 }
 
-function showChat() {
+function showChat(dec) {
 
     let customerId = $('#choose-user .form-select').val();
 
@@ -90,8 +104,6 @@ function showChat() {
 
     // console.log(loginId, ' : ', customerId);
 
-    $('#content-chat').empty();
-
     $.ajax({
         type: 'GET',
         url: urlGet,
@@ -100,7 +112,26 @@ function showChat() {
             // console.log(response['data'][17]['chat_id']);
             let chats = response['data'];
             let maxLength = chats.length - 1;
-            document.cookie = "last-chat=" + chats[maxLength]['chat_id'];
+            let lastChat = chats[maxLength];
+
+            if (dec == 'check') {
+                let chatId = lastChat['chat_id'];
+                let cookieChatId = getCookieValue();
+                // console.log(chatId + ' : ' + cookieChatId);
+                // console.log(chatId == cookieChatId);
+
+                if (chatId != cookieChatId) {
+                    document.cookie = "last-chat=" + chatId;
+                    addNewChat(lastChat);
+                    scrollToBottom();
+                    chatSound.play();
+                }
+
+                return;
+            }
+
+            $('#content-chat').empty();
+            document.cookie = "last-chat=" + lastChat['chat_id'];
 
             for (let i = 0; i < chats.length; i++) {
                 let chat = chats[i];
@@ -164,14 +195,6 @@ function addNewChat(chat) {
     $('#content-chat').append(temp_html);
 }
 
-function checkNewChat() {
-
-}
-
-function getLastChatId() {
-    
-}
-
 function scrollToBottom() {
     var chat = $('#after-chat');
     var list = $('#content-chat');
@@ -191,9 +214,17 @@ function checkInputChat() {
 
 function getCookieValue() {
     var cookies = document.cookie;
+    // console.log(cookies);
     var cookie = cookies.split(';');
-    var values = cookie[0].split('=');
-    var value = values[1];
-    // console.log(value);
-    return value;
+
+    for (var i = 0; i < cookie.length; i++) {
+        let values = cookie[i].split('=');
+        // console.log(values[0]);
+        let value = values[1];
+
+        if (values[0].trim() == 'last-chat') {
+            // console.log(value);
+            return value;
+        }
+    }
 }

@@ -21,7 +21,7 @@ class ChatController extends Controller
     public function index()
     {
         //
-        return ChatResource::collection(Chat::all());
+        return view('live-chat');
     }
 
     /**
@@ -45,7 +45,7 @@ class ChatController extends Controller
         //
         $dateTime = Carbon::now();
 
-        $newChat = new ChatResource(Chat::create(
+        new ChatResource(Chat::create(
             [
                 'sender_id' => $request->sender_id,
                 'receiver_id' => $request->receiver_id,
@@ -56,7 +56,9 @@ class ChatController extends Controller
             ]
         ));
 
-        return $newChat;
+        $latestChat = Chat::latest()->first();
+        $chatResult = new ChatResource($latestChat);
+        return $chatResult;
     }
 
     /**

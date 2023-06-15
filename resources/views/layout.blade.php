@@ -799,21 +799,28 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/cart" class="nav-link header-link">Cart</a>
                 </li>
+                @if (Auth::user()->id == 1)
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/item" class="nav-link header-link">Item</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/paket" class="nav-link">Paket</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/order" class="nav-link">Order</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/report" class="nav-link">Report</a>
+                </li>
+                @endif
+                <li class="nav-item d-none d-sm-inline-block">
                     <a href="/account" class="nav-link header-link">Account</a>
                 </li>
+                @if (Auth::user()->id > 1)
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/contact-us" class="nav-link header-link">Contact Us</a>
                 </li>
-                {{-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="/order" class="nav-link">Order</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/report" class="nav-link">Report</a>
-      </li> --}}
+                @endif
             </ul>
 
             <!-- Right navbar links -->
@@ -925,14 +932,14 @@
                         <select class="form-select" aria-label="Default select example">
                             @if (Auth::user()->id > 1)
 
-                            <option value={{ $users->id }} selected><strong>(5) </strong><span>{{ $users->name }}</span>
+                            <option value={{ $users->id }} selected><span>{{ $users->name }}</span><strong> (5)</strong>
                             </option>
 
                             @elseif (Auth::user()->id == 1)
 
                             @foreach ($users as $user)
 
-                            <option value={{ $user->id }} selected><strong>(5) </strong><span>{{ $user->name }}</span>
+                            <option value={{ $user->id }} selected><span>{{ $user->name }}</span><strong> (5)</strong>
                             </option>
 
                             @endforeach
@@ -944,7 +951,7 @@
                         <img src="{{asset('static/image/minimize-2-icon.png')}}" alt="minimize-icon">
                     </td>
                     <td id="maximize-chat">
-                        <a href="/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}"
+                        <a href="/api/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}"
                                 alt="maximize-icon"></a>
                     </td>
                 </tr>
