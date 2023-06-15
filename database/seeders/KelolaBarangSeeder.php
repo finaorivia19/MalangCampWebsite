@@ -29,15 +29,6 @@ class KelolaBarangSeeder extends Seeder
                 'harga' => 10000,
                 'gambar' => 'gambar',
             ],
-            [
-                'id_item' => 2,
-                'nama_item' => 'Tenda Max',
-                'stok' => 10,
-                'jenis' => 'Tenda',
-                'keterangan' => 'Tenda berukuran 10x2 meter, kapasitas 10 orang',
-                'harga' => 20000,
-                'gambar' => $namaFile,
-            ],
             // Tambahkan data lainnya sesuai kebutuhan
         ];
 

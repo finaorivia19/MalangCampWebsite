@@ -16,7 +16,7 @@ class KelolaBarangController extends Controller
      */
     public function index()
     {
-        $kelolaBarang = KelolaBarang::paginate(3);
+        $kelolaBarang = KelolaBarang::paginate(2);
         return view('kelolaBarang', compact(('kelolaBarang')));
     }
 
@@ -93,7 +93,8 @@ class KelolaBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelolaBarang = KelolaBarang::findOrFail($id);
+        return view('editKelolaBarang', compact('kelolaBarang'));
     }
 
     /**
@@ -103,9 +104,10 @@ class KelolaBarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KelolaBarang $kelolaBarang)
+    public function update(Request $request, $id)
     {
         $request->validate([
+            'id_item' => 'required',
             'nama_item' => 'required',
             'stok' => 'required',
             'jenis' => 'required',
@@ -113,29 +115,26 @@ class KelolaBarangController extends Controller
             'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     
-        if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $gambarNama = $gambar->getClientOriginalName();
-        
-            // Pindahkan gambar ke direktori yang diinginkan
-            $gambar->move(public_path('storage/static/image'), $gambarNama);
-    
-            // Hapus gambar lama jika ada
-            if ($kelolaBarang->gambar) {
-                Storage::delete('public/static/image/' . $kelolaBarang->gambar);
-            }
-    
-            $kelolaBarang->gambar = $gambarNama;
-        }
-        
+        $kelolaBarang = KelolaBarang::findOrFail($id);
+        $kelolaBarang->id_item = $request->id_item;
         $kelolaBarang->nama_item = $request->nama_item;
         $kelolaBarang->stok = $request->stok;
         $kelolaBarang->jenis = $request->jenis;
         $kelolaBarang->keterangan = $request->keterangan;
         $kelolaBarang->harga = $request->harga;
+    
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            $gambarNama = time() . '_' . $gambar->getClientOriginalName();
+        
+            // Pindahkan gambar ke direktori yang diinginkan
+            $gambar->move(public_path('storage/static/image'), $gambarNama);
+            $kelolaBarang->gambar = $gambarNama;
+        }
+    
         $kelolaBarang->save();
     
-        return redirect()->route('kelolaBarang.index')->with('success', 'Item berhasil diperbarui');
+        return redirect()->route('kelolaBarang.index')->with('success', 'Data Barang Berhasil Diupdate');
     }
     
 
@@ -147,10 +146,21 @@ class KelolaBarangController extends Controller
      */
     public function destroy($id)
     {
-        $data = User::findOrFail($id);
-        $data->delete();
-
-        return redirect()->back()->with('success', 'Data has been deleted');
+        // Temukan data barang yang ingin dihapus
+        $kelolaBarang = KelolaBarang::find($id);
+        
+        // Hapus gambar dari direktori jika ada
+        if ($kelolaBarang->gambar) {
+            $gambarPath = public_path('storage/static/image') . '/' . $kelolaBarang->gambar;
+            if (file_exists($gambarPath)) {
+                unlink($gambarPath);
+            }
+        }
+    
+        // Hapus data barang dari database
+        $kelolaBarang->delete();
+    
+        return redirect()->route('kelolaBarang.index')->with('success', 'Item Berhasil Dihapus');
     }
     
 }
