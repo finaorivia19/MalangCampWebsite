@@ -14,23 +14,23 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
     {{-- google font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -304,9 +304,25 @@
             animation-delay: 0.3s;
         }
 
-        .utama {}
+        /* kelola_barangs */
 
-        .box_kelola {
+        .utama{
+            height : 50%;
+        }
+        .box_kelola{
+            position: relative;
+            width: 50%;
+            height: 50%;
+            margin-left: 2%;
+            margin-right: 2%;
+            top: 25px;
+
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        .box_kelola1{
             position: relative;
             width: 30%;
             height: 50%;
@@ -323,9 +339,7 @@
             position: relative;
             width: 131px;
             height: 16px;
-            left: 31%;
-            top: 15px;
-
+            top: 13px;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
@@ -335,14 +349,17 @@
             align-items: center;
             text-align: center;
             color: #000000;
+            margin-left:30%;
         }
 
         .box_foto {
             position: relative;
             width: 95px;
             height: 95px;
-            margin-top: 26px;
-            margin-left: 33%;
+            margin-top: 30px;
+            margin-left: 30%;
+            margin-right: 28%;
+            margin-bottom:5px;
             background-color: rgba(150, 150, 150, 0.75);
             border: 0px solid #ccc;
             border-radius: 10px;
@@ -351,7 +368,10 @@
         }
 
         .drop-container {
-            margin: 27px;
+            margin-top : 27px;
+            margin-left : 27px;
+            margin-right : 27px;
+            margin-bottom : 10px;
             position: relative;
             display: flex;
             gap: 10px;
@@ -400,23 +420,28 @@
             border-radius: 30px;
         }
 
-        .box_isi {
-            position: static;
+        .box_isi{
+            /* position: static; */
             width: 94%;
             height: 25px;
             top: 110;
             background-color: rgba(300, 300, 300, 0.5);
             border: 0px solid #ccc;
             border-radius: 7px;
-            color: white;
+            color: black;
+            padding-left:5px;
+        }
+
+        .isi{
+            padding-top :5px;
         }
 
         .box_add {
             position: relative;
-            width: 30%;
+            width: 40%;
             height: 5%;
-            margin-left: 12%;
-            margin-right: 2%;
+            margin-left: 5%;
+            margin-right: 1%;
             top: 13px;
             background-color: #96858F;
             border: 0px solid #ccc;
@@ -428,21 +453,47 @@
 
         .box_list {
             position: relative;
+            width: 63%;
+            height: 500px;
+            left: 1.7%;
+            right: 5%;
+            top: 27px;
+            background: #96858F;
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        .list{
+            margin-left:10%;
+            margin-right:10%;
+        }
+
+        .box_listTam{
+            position: relative;
             width: 97%;
             height: 380px;
             left: 2%;
             right: 2%;
-            top: 65px;
+            top: 35px;
             background: #96858F;
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
+            justify-content:center;
+        }
+
+        label {
+            margin-bottom: 0px; /* Memberikan jarak antara label dengan elemen berikutnya */
+        }
+        .pagination{
+            margin-left: 27%;
+            right:0%;
         }
 
         .box_tenda {
             position: relative;
             width: 150px;
             height: 35px;
-            left: 36.5%;
+            /* left: 35%; */
             top: 18px;
             margin-bottom: 10px;
             text-align: center;
@@ -451,6 +502,30 @@
             border-radius: 10px;
             margin-left: 2%;
             margin-right: 2%;
+            padding-right:10%;
+        }
+
+        .tambahan{
+            position:relative;
+            margin-left:11.5%
+        }
+        
+        .box_panah{
+            position: relative;
+            width: 40%;
+            height: 35px;
+            top: 18px;
+            margin-bottom:9px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            padding-top:1%;
+            justify-content: center;
+        }
+
+        .box_panah_tenda{
+            left:20%;
         }
 
         .hapus_edit {}
@@ -471,9 +546,9 @@
             position: relative;
             width: 35px;
             height: 35px;
-            left: 36.5%;
-            top: 18px;
-            text-align: center;
+            left: 90%;
+            top: 60px;
+            text-align:center;
             background: #FFFFFF;
             opacity: 0.6;
             border-radius: 10px;
@@ -499,7 +574,6 @@
             top: 0%;
             position: relative:
         }
-
 
         /* chat */
         #before-chat {
@@ -996,41 +1070,40 @@
     </div>
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
 
     </script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
     <!-- Sparkline -->
-    <script src="plugins/sparklines/sparkline.js"></script>
+    <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
     <!-- JQVMap -->
-    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
     <!-- jQuery Knob Chart -->
-    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
     <!-- daterangepicker -->
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
+    <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
-    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
     <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+    <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    {{-- <script src="dist/js/demo.js"></script> --}}
+    {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
-
+    <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <script src="{{asset('static/js/live-chat.js')}}"></script>
 </body>
 

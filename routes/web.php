@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\TambahPesananController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;
@@ -47,9 +48,11 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 
 Route::resource('kelolaBarang', KelolaBarangController::class);
 
-// Route::get('/kelolaBarang', [App\Http\Controllers\KelolaBarangController::class, 'kelolaBarang'])->name('keloalaBarang');
+Route::resource('/tambahPesanan', TambahPesananController::class);
 
-// Route::post('/kelolaBarang', [KelolaBarangController::class, 'kelolaBarang']);
+// Route::get('/tambahPesanan', function () {
+//     return view('tambahPesanan');
+// });
 
 Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
 
