@@ -11,23 +11,23 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,11 +304,23 @@
         /* kelola_barangs */
 
         .utama{
-        
+            height : 50%;
         }
         .box_kelola{
             position: relative;
-            /* display:flex; */
+            width: 50%;
+            height: 50%;
+            margin-left: 2%;
+            margin-right: 2%;
+            top: 25px;
+
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+        }
+
+        .box_kelola1{
+            position: relative;
             width: 30%;
             height: 50%;
             margin-left: 2%;
@@ -438,37 +450,46 @@
 
         .box_list{
             position: relative;
-            width: 97%;
-            height: 490px;
-            left: 2%;
-            right: 2%;
-            top: 65px;
+            width: 63%;
+            height: 500px;
+            left: 1.7%;
+            right: 5%;
+            top: 27px;
             background: #96858F;
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
         }
 
+        .list{
+            margin-left:10%;
+            margin-right:10%;
+        }
+
         .box_listTam{
             position: relative;
             width: 97%;
-            height: 435px;
+            height: 380px;
             left: 2%;
             right: 2%;
             top: 35px;
             background: #96858F;
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
+            justify-content:center;
         }
 
         label {
             margin-bottom: 0px; /* Memberikan jarak antara label dengan elemen berikutnya */
         }
-
+        .pagination{
+            margin-left: 27%;
+            right:0%;
+        }
         .box_tenda{
             position: relative;
             width: 150px;
             height: 35px;
-            left: 39.5%;
+            /* left: 35%; */
             top: 18px;
             margin-bottom: 10px;
             text-align:center;
@@ -476,8 +497,31 @@
             opacity: 0.6;
             border-radius: 10px;
             margin-left: 2%;
-            margin-right: 6%;
+            margin-right: 2%;
             padding-right:10%;
+        }
+
+        .tambahan{
+            position:relative;
+            margin-left:11.5%
+        }
+
+        .box_panah{
+            position: relative;
+            width: 40%;
+            height: 35px;
+            top: 18px;
+            margin-bottom:9px;
+            text-align:center;
+            background: #FFFFFF;
+            opacity: 0.6;
+            border-radius: 10px;
+            padding-top:1%;
+            justify-content: center;
+        }
+
+        .box_panah_tenda{
+            left:20%;
         }
 
         .hapus_edit{
@@ -978,40 +1022,40 @@
     </div>
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
 
     </script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
     <!-- Sparkline -->
-    <script src="plugins/sparklines/sparkline.js"></script>
+    <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
     <!-- JQVMap -->
-    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
     <!-- jQuery Knob Chart -->
-    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
     <!-- daterangepicker -->
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
+    <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
-    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
     <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+    <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    {{-- <script src="dist/js/demo.js"></script> --}}
+    {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
+    <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 </body>
 
 </html>
