@@ -8,6 +8,7 @@ use App\Http\Controllers\KelolaBarangController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;
+use App\Http\Controllers\updateUserController;
 
 
 /*
@@ -29,14 +30,10 @@ Route::get('/', function () {
 
 Route::get('/account', function () {
     return view('account');
-})->middleware('auth');;
+})->middleware('auth')->name('account');
 
 Route::get('/live-chat', function () {
     return view('live-chat');
-})->middleware('auth');;
-
-Route::get('/update-account', function () {
-    return view('updateAccount');
 })->middleware('auth');;
 
 Route::get('/contact-us', function () {
@@ -57,6 +54,9 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 Route::get('/otp', [OTPController::class, 'show'])->name('verification-get');
 Route::post('/otp', [OTPController::class, 'verify'])->name('verification-post');
+
+Route::get('/update-account', [updateUserController::class, 'edit'])->name('get-account');
+Route::post('/post-account', [updateUserController::class, 'update'])->name('post-account');
 
 // Route::get('otp', function () {
 //     return view('otp');

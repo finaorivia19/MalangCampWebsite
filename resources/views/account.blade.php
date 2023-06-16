@@ -12,7 +12,7 @@
     <div class="card mb-3" style="max-width: 830px; background-color:#96858F; right: -50px; border-radius:20px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="{{asset(Auth::user()->photo_profile)}}" class="img-fluid rounded-start"
+                <img src="{{asset('storage/'.Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                     style="width:120px; height:120px; top:80px; margin-left:130%;  text-align: center; margin-top: 32px;">
                 <div class="col-md-8">
                     <div class="card-body">
@@ -42,24 +42,6 @@
                                 </h5>
                         </div>
                         <center style="">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-light"
-                                            style="background-color:#AC608D;">Delete Account</button>
-                                        <form action="" method="DELETE">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-outline-light" style="background-color:#673A54;"
-                                            href="update-account" type="button">Update Account</a>
-                                    </td>
-                                </tr>
-                            </table>>
-
-
                         </center>
                         <center>
                             <table>
@@ -91,7 +73,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a class="btn btn-outline-light" style="background-color:#673A54;" href="update-account" type="button">Update Account</a>
+                                        <a class="btn btn-outline-light" style="background-color:#673A54;" href="/update-account" type="button">Update Account</a>
                                     </td>
                                 </tr>
                             </table>
