@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\KelolaBarang;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class KelolaBarangSeeder extends Seeder
 {
@@ -78,9 +81,9 @@ class KelolaBarangSeeder extends Seeder
                 'jenis' =>'Tenda',
                 'harga' => '50000',
                 'gambar' => 'static/image/imaage 10.jpg'
-            ]
+            ],
             ];
+      
         DB::table('kelola_barangs')->insert($data);
     }
-
 }

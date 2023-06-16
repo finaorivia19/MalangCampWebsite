@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow-lg">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
@@ -33,13 +33,14 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                <button type="submit" class="btn">
+                                    {{ __('Confirm') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <span class="detail-email mt-2"><h6>If it doesn't appear, try checking spam or promotions</h4></span>
             </div>
         </div>
     </div>
