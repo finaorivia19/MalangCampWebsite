@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaketController;
 use Illuminate\Http\Request; 
 use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\DataController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,13 +60,17 @@ Route::get('/paketDetail', function () {
     return view('paketDetail');
 });
 
+Route::get('/paketDetailMember', function () {
+    return view('paketDetailMember');
+});
+
 Route::get('/updatePaket', function () {
     return view('updatePaket');
 });
 
 Route::get('/tambahPaket', function () {
     return view('tambahPaket');
-});
+})->name('tambah-paket');
 
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

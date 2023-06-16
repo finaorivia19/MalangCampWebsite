@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paket;
+use App\Models\KelolaBarang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,9 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $Pakets = Paket::with('kelola_barangs')->get();
+        $Pakets = Paket::all();
         // dd($Pakets);
-        return view('paket', compact('Pakets'));
+        return view('kelolaPaket', compact('Pakets'));
     }
 
     /**
@@ -28,7 +29,9 @@ class PaketController extends Controller
      */
     public function create()
     {
-        //
+        $item = KelolaBarang::all();
+        // dd($item);
+        return view('tambahPaket', compact('item'));
     }
 
     /**
@@ -37,9 +40,36 @@ class PaketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+        public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'nama_paket' => 'required',
+            'image_paket' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'harga_paket' => 'required|numeric',
+            'items' => 'required|array',
+        ]);
+
+        dd($request);
+
+        // Simpan data paket
+        $paket = new Paket();
+        $paket->nama_paket = $request->get('nama_paket');
+        $paket->harga_paket = $request->get('harga_paket');
+
+        // Upload gambar dan simpan path ke database
+        if ($request->file('image_paket')) {
+            $filename = $request->file('image_paket')->store('image_paket', 'public');
+        }
+
+        $paket->save();
+
+        // Simpan item terkait
+        $items = $request->get('items');
+        $paket->items()->attach($items);
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->route('paket.index')->with('success', 'Paket berhasil disimpan');
     }
 
     /**
@@ -60,9 +90,10 @@ class PaketController extends Controller
      * @param  \App\Models\Paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paket $paket)
+    public function edit($paket_id)
     {
-        //
+        $Paket = Paket::find($paket_id);
+        return view('updatePaket', compact('Paket'));
     }
 
     /**
