@@ -922,7 +922,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="mt-3 pb-3 mb-3 text-center">
                     <div>
-                        <img src="{{asset(Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
+                        <img src="{{asset('storage/'.Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                             alt="User Image" href="/account">
                         <a href="/account" class="d-block mt-2 text-white">
                             <h6 id="username">{{Auth::user()->name}}</h6>

@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaketController;
 use Illuminate\Http\Request; 
 use Illuminate\Http\Request;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\updateUserController;
 use App\Http\Controllers\TambahPesananController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -30,7 +32,11 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/account', function () {
     return view('account');
-})->middleware('auth');;
+})->middleware('auth')->name('account');
+
+// Route::get('/live-chat', function () {
+//     return view('live-chat');
+// })->middleware('auth');;
 
 Route::get('/update-account', function () {
     return view('updateAccount');
@@ -79,3 +85,6 @@ Route::resource('paket', PaketController::class);
 
 Route::get('/otp', [OTPController::class, 'show'])->name('verification-get');
 Route::post('/otp', [OTPController::class, 'verify'])->name('verification-post');
+
+Route::get('/update-account', [updateUserController::class, 'edit'])->name('get-account');
+Route::post('/post-account', [updateUserController::class, 'update'])->name('post-account');
