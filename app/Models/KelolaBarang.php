@@ -22,7 +22,12 @@ class KelolaBarang extends Model
         'nama_item',
         'stok',
         'jenis',
+        'keterangan',
         'harga',
         'gambar',
     ];
+
+    public function paket() {
+        return $this->belongsToMany(Paket::class, "kelola_barangs_paket", "id_item", "paket_id");
+    }
 }

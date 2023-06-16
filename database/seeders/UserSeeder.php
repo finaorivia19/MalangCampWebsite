@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         $data = [
             [
                 'name'=> 'Admin',
-                'email'=> 'malangcamp@yahoo.com',
+                'email'=> 'malang4camp@gmail.com',
                 'email_verified_at'=> $now,
                 'password'=> Hash::make('password'),
                 'username'=> 'admin',
