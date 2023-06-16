@@ -22,6 +22,7 @@ class KelolaBarang extends Model
         'nama_item',
         'stok',
         'jenis',
+        'keterangan',
         'harga',
         'gambar',
     ];
