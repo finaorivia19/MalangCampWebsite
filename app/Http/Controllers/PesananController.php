@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KelolaPesanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 class PesananController extends Controller
 {
@@ -36,7 +37,28 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tanggal_peminjaman' => 'required',
+            'tanggal_kembali' => 'required',
+            'bukti_transaksi' => 'required',
+            'status_pembayaran' => 'required',
+            'catatan' => 'required',
+            'status_order' => 'required',
+            'total' => 'required',
+        ]);
+
+        $pesanan = new kelolaPesanan;
+        $pesanan->tanggal_peminjaman=$request->get('tanggal_peminjaman');
+        $pesanan->tanggal_kembali=$request->get('tanggal_kembali');
+        $pesanan->bukti_transaksi=$request->get('bukti_transaksi');
+        $pesanan->status_pembayaran=$request->get('status_pembayaran');
+        $pesanan->catatan=$request->get('catatan');
+        $pesanan->status_order=$request->get('status_order');
+        $pesanan->total=$request->get('total');
+
+        $pesanan->save();
+
+        return redirect()->route('cart');
     }
 
     /**
@@ -45,9 +67,10 @@ class PesananController extends Controller
      * @param  \App\Models\KelolaPesanan  $kelolaPesanan
      * @return \Illuminate\Http\Response
      */
-    public function show(KelolaPesanan $kelolaPesanan)
+    public function show($pesanan_id)
     {
-        return view('kelolaPesanan');
+        $pesanan = kelolaPesanan::find($pesanan_id);
+        return view('kelolaPesanan', compact('KelolaPesanan'));
     }
 
     /**
@@ -68,9 +91,18 @@ class PesananController extends Controller
      * @param  \App\Models\KelolaPesanan  $kelolaPesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KelolaPesanan $kelolaPesanan)
+    public function update(Request $request, $pesanan_id)
     {
-        //
+        $request->validate([
+            'status_pembayaran' => 'required',
+        ]);
+
+        $pesanan = KelolaPesanan::find($pesanan_id);
+        $pesanan->status_pembayaran=$request->get('status_pembayaran');
+
+        $pesanan->save();
+
+        return redirect()->route('kelolaPesanan');
     }
 
     /**

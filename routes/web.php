@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,10 @@ Auth::routes();
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/cart/add',[KeranjangController::class, 'addToCart'])->name('cart.add');
+Route::get('/show-cart', [KeranjangController::class,'showCart'])->name('cart.show');
+Route::get('/test-cart', function (){
+    return view('product');
+});
 

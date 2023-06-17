@@ -318,8 +318,11 @@
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
             width: 50%;
-            height: 83%;
-            margin: 3vh;
+            height: 88%;
+            margin-top: 1vh;
+            margin-right: 3vh;
+            margin-left: 3vh;
+
         }
 
         .cart-pesanan .content-cart .right-box-cart{
@@ -329,11 +332,11 @@
             box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
             border-radius: 30px;
             width: 50%;
-            height: 69%;
+            height: 88%;
             margin-right: 3vh;
             margin-left: 3vh;
-            margin-top: 10vh;
-            margin-bottom: 10vh;
+            margin-top: 1vh;
+            
         }
 
         .content-right-box-cart{
@@ -341,13 +344,18 @@
             margin-right:7vh;
         }
 
-        .upload-bukti-transaksi .custom-input-bukti{
+        .content-left-box-cart{
+            margin-left: 7vh;
+            margin-right:7vh;
+        }
+
+        /* .upload-bukti-transaksi .custom-input-bukti{
             visibility: hidden;
             width: 0;
             position: absolute;
-        }
+        } */
 
-        .upload-bukti-transaksi label{
+        /* .upload-bukti-transaksi label{
             display: inline-block;
             margin: 0 auto;
             background: #FFFFFF;
@@ -357,7 +365,7 @@
             height: 6vh;
             padding-left: 2vh;
             cursor: pointer;
-        }
+        } */
 
         .text-kirim-bukti{
             float: left;
@@ -366,9 +374,7 @@
         }
 
         .button-kirim-bukti{
-            float: left;
-            width: 50%;
-            text-align: right;
+            text-align: center;
         }
 
         .custom-button-kirim{
