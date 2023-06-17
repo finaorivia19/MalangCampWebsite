@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>benakno den | Malang Camp</title>
+    <link rel="icon" href="{{asset('static/image/malang-camp-logo-1.png')}}">
+    <title>@yield('title') | Malang Camp</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {{-- jquery --}}
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         *{
@@ -37,6 +43,10 @@
             float: left;
             width: 57%;
             height: 93vh;
+        }
+
+        .box-form-login form{
+            margin-top:10%;
         }
 
         .kolom{
@@ -78,8 +88,19 @@
             padding-left: 2vh;
             border: none;
         }
-
     </style>
+
+    <script>
+        $(document).ready(function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var successMessage = urlParams.get('success');
+
+            if (successMessage) {
+                // Menampilkan pesan sukses menggunakan alert
+                alert(successMessage);
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">

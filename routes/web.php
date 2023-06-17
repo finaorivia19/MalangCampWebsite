@@ -3,6 +3,18 @@
 use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaketController;
+use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\updateUserController;
+use App\Http\Controllers\TambahPesananController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OTPController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,24 +27,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Auth::routes();
 
-Route::get('/coba', function () {
-    return view('coba');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/account', function () {
+    return view('account');
+})->middleware('auth')->name('account');
+
+// Route::get('/live-chat', function () {
+//     return view('live-chat');
+// })->middleware('auth');;
+
+Route::get('/update-account', function () {
+    return view('updateAccount');
+})->middleware('auth');;
+
+Route::get('/home', function () {
+    return redirect('/');
+})->name('home');
 
 Route::get('/contact-us', function () {
     return view('contactUs');
+})->middleware('auth');;
+
+Route::get('/kelolaPaket', function () {
+    return view('kelolaPaket');
 });
 
-// Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/paketDetail', function () {
+    return view('paketDetail');
+});
 
-Route::get('/coba', [App\Http\Controllers\CobaController::class, 'coba'])->name('coba');
+Route::get('/updatePaket', function () {
+    return view('updatePaket');
+});
 
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('cart');
 
@@ -42,10 +71,28 @@ Route::get('/laporanTransaksi', [App\Http\Controllers\TransaksiController::class
 
 // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class])->name('register');
 
-Auth::routes();
+Route::get('/tambahPaket', function () {
+    return view('tambahPaket');
+});
 
+Route::delete('/data/{id}', [DataController::class, 'destroy'])->name('data.destroy')->middleware('auth');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::resource('kelolaBarang', KelolaBarangController::class);
+
+Route::resource('/tambahPesanan', TambahPesananController::class);
+
+// Route::get('/tambahPesanan', function () {
+//     return view('tambahPesanan');
+// });
+
+Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
+
+Route::resource('paket', PaketController::class);
+
+Route::get('/otp', [OTPController::class, 'show'])->name('verification-get');
+Route::post('/otp', [OTPController::class, 'verify'])->name('verification-post');
 
 Route::post('/cart/add',[KeranjangController::class, 'addToCart'])->name('cart.add');
 Route::get('/show-cart', [KeranjangController::class,'showCart'])->name('cart.show');
@@ -53,3 +100,5 @@ Route::get('/test-cart', function (){
     return view('product');
 });
 
+Route::get('/update-account', [updateUserController::class, 'edit'])->name('get-account');
+Route::post('/post-account', [updateUserController::class, 'update'])->name('post-account');

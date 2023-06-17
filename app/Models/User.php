@@ -17,10 +17,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'users';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'username',
+        'phoneNumber',
+        'address',
+        'photo_profile',
+        'otp_code',
+        'otp_expired',
     ];
 
     /**
@@ -40,5 +51,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'otp_expired' => 'datetime',
     ];
+
+    public function chat() {
+        return $this->hasMany(Chat::class);
+    }
 }

@@ -14,12 +14,23 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
+
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
+
+    'App\\Http\\Controllers\\ChatController' => $baseDir . '/app/Http/Controllers/ChatController.php',
+
     'App\\Http\\Controllers\\CobaController' => $baseDir . '/app/Http/Controllers/CobaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DataController' => $baseDir . '/app/Http/Controllers/DataController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+
     'App\\Http\\Controllers\\PesananController' => $baseDir . '/app/Http/Controllers/PesananController.php',
     'App\\Http\\Controllers\\TransaksiController' => $baseDir . '/app/Http/Controllers/TransaksiController.php',
+
+    'App\\Http\\Controllers\\KelolaBarangController' => $baseDir . '/app/Http/Controllers/KelolaBarangController.php',
+    'App\\Http\\Controllers\\PaketController' => $baseDir . '/app/Http/Controllers/PaketController.php',
+    'App\\Http\\Controllers\\OTPController' => $baseDir . '/app/Http/Controllers/OTPController.php',
+
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -30,9 +41,17 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+
     'App\\Models\\Cart' => $baseDir . '/app/Models/Cart.php',
     'App\\Models\\KelolaPesanan' => $baseDir . '/app/Models/KelolaPesanan.php',
     'App\\Models\\Transaksi' => $baseDir . '/app/Models/Transaksi.php',
+
+    'App\\Mail\\OtpMail' => $baseDir . '/app/Mail/OtpMail.php',
+    'App\\Models\\Chat' => $baseDir . '/app/Models/Chat.php',
+    'App\\Models\\KelolaBarang' => $baseDir . '/app/Models/KelolaBarang.php',
+    'App\\Models\\KelolaBarangsPaket' => $baseDir . '/app/Models/KelolaBarangsPaket.php',
+    'App\\Models\\Paket' => $baseDir . '/app/Models/Paket.php',
+
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
@@ -151,6 +170,10 @@ return array(
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
+    'Database\\Seeders\\KelolaBarangSeeder' => $baseDir . '/database/seeders/KelolaBarangSeeder.php',
+    'Database\\Seeders\\KelolaBarangsPaketSeeder' => $baseDir . '/database/seeders/KelolaBarangsPaketSeeder.php',
+    'Database\\Seeders\\PaketSeeder' => $baseDir . '/database/seeders/PaketSeeder.php',
+    'Database\\Seeders\\UserSeeder' => $baseDir . '/database/seeders/UserSeeder.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
     'DeepCopy\\Exception\\PropertyException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
@@ -3774,6 +3797,7 @@ return array(
     'Psy\\Sudo' => $vendorDir . '/psy/psysh/src/Sudo.php',
     'Psy\\Sudo\\SudoVisitor' => $vendorDir . '/psy/psysh/src/Sudo/SudoVisitor.php',
     'Psy\\SuperglobalsEnv' => $vendorDir . '/psy/psysh/src/SuperglobalsEnv.php',
+    'Psy\\SystemEnv' => $vendorDir . '/psy/psysh/src/SystemEnv.php',
     'Psy\\TabCompletion\\AutoCompleter' => $vendorDir . '/psy/psysh/src/TabCompletion/AutoCompleter.php',
     'Psy\\TabCompletion\\Matcher\\AbstractContextAwareMatcher' => $vendorDir . '/psy/psysh/src/TabCompletion/Matcher/AbstractContextAwareMatcher.php',
     'Psy\\TabCompletion\\Matcher\\AbstractDefaultParametersMatcher' => $vendorDir . '/psy/psysh/src/TabCompletion/Matcher/AbstractDefaultParametersMatcher.php',

@@ -83,7 +83,6 @@ class KelolaBarangSeeder extends Seeder
                 'gambar' => 'static/image/imaage 10.jpg'
             ],
             ];
-
         DB::table('kelola_barangs')->insert($data);
     }
 }
