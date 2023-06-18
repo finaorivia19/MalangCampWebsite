@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
+use App\Http\Controllers\TambahPesananController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;
@@ -47,6 +48,12 @@ Route::delete('/data/{id}', [DataController::class, 'destroy'])->name('data.dest
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::resource('kelolaBarang', KelolaBarangController::class);
+
+Route::resource('/tambahPesanan', TambahPesananController::class);
+
+// Route::get('/tambahPesanan', function () {
+//     return view('tambahPesanan');
+// });
 
 Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
 
