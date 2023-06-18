@@ -951,7 +951,7 @@
                         <img src="{{asset('static/image/minimize-2-icon.png')}}" alt="minimize-icon">
                     </td>
                     <td id="maximize-chat">
-                        <a href="/api/live-chat"><img src="{{asset('static/image/maximize-icon.png')}}"
+                        <a href="/live-chat/"><img src="{{asset('static/image/maximize-icon.png')}}"
                                 alt="maximize-icon"></a>
                     </td>
                 </tr>
@@ -1031,7 +1031,7 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
 
-    <script src="{{asset('static/js/live-chat.js')}}"></script>
+    <script src="{{asset('static/js/live-chat-layout.js')}}"></script>
 </body>
 
 </html>

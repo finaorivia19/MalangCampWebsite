@@ -21,7 +21,7 @@ class ChatController extends Controller
     public function index()
     {
         //
-        return view('live-chat');
+        // return view('live-chat');
     }
 
     /**
@@ -115,9 +115,10 @@ class ChatController extends Controller
      * @param  \App\Models\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chat $chat)
+    public function destroy($chat_id)
     {
         //
+        $chat = Chat::find($chat_id);
         $chat->delete();
         return response()->noContent();
     }
