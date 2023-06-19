@@ -4,9 +4,9 @@
 
 <div class="all" style="padding-top:20px; width: 1000px;">
     <div class="d-flex" id="table"
-        style=" background-color: #96858F; padding: 25px; border-radius: 35px; margin-left:20px; width: 1030px; max-width: 1050px; min-width: 300px;">
+        style=" background-color: #96858F; padding: 25px; border-radius: 35px; margin-left:20px; width: 1030px; max-width: 1050px; min-width: 300px; ">
         <div class="bg2"
-            style="background-color: #B5AAB1; padding: 25px; border-radius: 35px; margin-left:5px; width: 100%; max-width: 750px; min-width: 300px;">
+            style="background-color: #B5AAB1; padding: 25px; border-radius: 35px 0px 0px 35px; margin-left:5px; width: 100%; max-width: 750px; min-width: 300px; overflow: auto; height:500px;">
 
             @foreach($Paket->kelola_barangs as $item)
 
@@ -54,7 +54,7 @@
                                     style="height:23px; width: 380px; background-color:white; border-radius:20px; padding-left:8px;">
                                     <strong>{{$Paket->harga_paket}}</strong></h6>
                                 <div>
-                                    <a href="{{ route('paket.index') }}" type="button" class="btn btn-outline-light"
+                                    <a href="/paketMember" type="button" class="btn btn-outline-light"
                                         style="background-color:#AC608D; bottom:0px; border-radius:20px; width:150px; margin-left:120px;">Cancel</a>
 
                                 </div>

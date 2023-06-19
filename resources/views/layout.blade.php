@@ -40,8 +40,8 @@
     {{-- jquery --}}
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="{{asset('//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('/resources/demos/style.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
@@ -922,6 +922,9 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="mt-3 pb-3 mb-3 text-center">
                     <div>
+
+                        <!-- <img src="{{asset(Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile" alt="User Image" href="/account"> -->
+
                         <img src="{{asset('storage/'.Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                             alt="User Image" href="/account">
                         <a href="/account" class="d-block mt-2 text-white">
@@ -929,7 +932,6 @@
                         </a>
                     </div>
                     <hr color="white" />
-
                 </div>
 
                 <!-- Sidebar Menu -->
