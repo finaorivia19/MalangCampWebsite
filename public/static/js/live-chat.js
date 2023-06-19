@@ -24,7 +24,19 @@ $(document).ready(function () {
         if (event.key === 'Enter') {
             if (chatInput.val().trim() !== '') {
                 // console.log('send-chat');
-                sendChat();
+                let onclickValue = $('#send-chat').prop('onclick');
+                let sendFunction = onclickValue.toString().split(' ')[2];
+                let getFunction = sendFunction.split('\n')[1];
+
+                if (getFunction === 'sendChat()') {
+                    sendChat();
+                } else {
+                    let num1 = getFunction.split('(')[1];
+                    let num2 = num1.replace(')', '');
+                    let chatId = parseInt(num2);
+
+                    editChat(chatId);
+                }
             }
         }
     });
@@ -127,7 +139,7 @@ function showChat(dec) {
                 addNewChat(chat);
             }
 
-            if (dec != 'delete') {
+            if (dec != 'delete' && dec != 'edit') {
                 scrollToBottom();
             }
         }
@@ -169,20 +181,20 @@ function addNewChat(chat) {
                 </td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="${chatId}">
                 <td id="delete-chat" onclick="openModalConfirm(${chatId})">
                     <div>
                         <img src='http://localhost:8000/static/image/delete-icon.png' alt="delete-icon">
                     </div>
                 </td>
                 <td></td>
-                <td id="edit-chat">
+                <td id="edit-chat" onclick="changeToEdit(${chatId})">
                     <div>
                         <img src='http://localhost:8000/static/image/edit-icon.png' alt="delete-icon">
                     </div>
                 </td>
                 <td></td>
-                <td id="chat-sender">
+                <td id="chat-sender" class="chat-text">
                     ${chatText}
                 </td>
                 <td>
@@ -212,24 +224,12 @@ function addNewChat(chat) {
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="${chatId}">
                 <td>
                     <img src='http://localhost:8000/${receiverProfile}' class="img-circle elevation-2" alt="receiver-img">
                 </td>
-                <td id="chat-receiver">
+                <td id="chat-receiver" class="chat-text">
                     ${chatText}
-                </td>
-                <td></td>
-                <td id="edit-chat">
-                    <div>
-                        <img src='http://localhost:8000/static/image/edit-icon.png' alt="delete-icon">
-                    </div>
-                </td>
-                <td></td>
-                <td id="delete-chat" onclick="openModalConfirm(${chatId})">
-                    <div>
-                        <img src='http://localhost:8000/static/image/delete-icon.png' alt="delete-icon">
-                    </div>
                 </td>
             </tr>
             <tr id="date-time">
@@ -237,8 +237,6 @@ function addNewChat(chat) {
                 <td>
                     <span>${dateTime}</span>
                 </td>
-                <td></td>
-                <td></td>
             </tr>
         </table>
         `;
@@ -301,6 +299,73 @@ function deleteChat(chat_id) {
     });
 }
 
+function editChat(chat_id) {
+    let customerId = $('.user-list.active').attr('user-id');
+
+    let senderId = loginId;
+    let receiverId = customerId;
+    let chat = $('#chat-input').val();
+    chat += ' (edited)';
+
+    let data = {
+        sender_id: senderId,
+        receiver_id: receiverId,
+        chat: chat,
+        file: 'knowhere',
+        is_read: 0,
+    }
+
+    $.ajax({
+        type: 'PUT',
+        url: `/api/live-chat/${chat_id}`,
+        data: data,
+        success: function(response) {
+
+            $('#chat-input').val('');
+            $('#send-chat').css('display', 'none');
+            showChat('edit');
+            closeEdit();
+            // chatSound.play();
+        }
+    });
+}
+
+function changeToEdit(chat_id) {
+    let chatInput = $('#chat-input');
+    let chatContent = $(`tr#${chat_id} .chat-text`).text().trim();
+    let minimize = $('#minimize');
+    let minimizeChat = $('#minimize a');
+    let closeChat = $('#minimize a img');
+    let sendChat = $('#send-chat');
+
+    minimize.attr('onclick', 'closeEdit()');
+    minimizeChat.removeAttr('href');
+    closeChat.attr('src', 'http://localhost:8000/static/image/close-icon.png');
+    chatInput.val(chatContent);
+    sendChat.attr('onclick', `editChat(${chat_id})`);
+}
+
+function closeEdit() {
+    let chatInput = $('#chat-input');
+    let minimize = $('#minimize');
+    let closeChat = $('#minimize a img');
+    let sendChat = $('#send-chat');
+
+    minimize.removeAttr('onclick');
+    closeChat.attr('src', 'http://localhost:8000/static/image/minimize-icon.png');
+    chatInput.val('');
+    sendChat.attr('onclick', 'sendChat()');
+
+    setTimeout(function() {
+        minimizeChat();
+    }, 8000);
+}
+
+function minimizeChat() {
+    let minimizeChat = $('#minimize a');
+    minimizeChat.attr('href', '/');
+}
+
 function openModalConfirm(chat_id) {
     $('#confirmDeleteModal').modal('show');
     $('#confirmDeleteButton').attr('onclick', `deleteChat(${chat_id})`);
@@ -319,8 +384,10 @@ function checkInputChat() {
     let chatInput = $('#chat-input');
     if (chatInput.val().trim() !== '') {
         sendChat.css('display', 'flex');
+        return true;
     } else {
         sendChat.css('display', 'none');
+        return false;
     }
 }
 

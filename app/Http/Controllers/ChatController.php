@@ -93,15 +93,18 @@ class ChatController extends Controller
      * @param  \App\Models\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChatRequests $request, Chat $chat)
+    public function update(UpdateChatRequests $request, $chat_id)
     {
         //
+        $chat = Chat::find($chat_id);
+        $dateTime = Carbon::now();
+
         $chat->update([
             'sender_id' => $request->sender_id,
             'receiver_id' => $request->receiver_id,
             'chat' => $request->chat,
             'file' => $request->file,
-            'date_time' => $request->date_time,
+            'date_time' => $dateTime,
             'is_read' => $request->is_read,
         ]);
 
