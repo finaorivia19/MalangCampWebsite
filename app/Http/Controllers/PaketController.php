@@ -50,8 +50,6 @@ class PaketController extends Controller
             'items' => 'required|array',
         ]);
 
-        dd($request);
-
         // Simpan data paket
         $paket = new Paket();
         $paket->nama_paket = $request->get('nama_paket');
@@ -59,14 +57,15 @@ class PaketController extends Controller
 
         // Upload gambar dan simpan path ke database
         if ($request->file('image_paket')) {
-            $filename = $request->file('image_paket')->store('image_paket', 'public');
+            $filename = $request->file('image_paket')->store('static/image_paket/', 'public');
         }
 
+        $paket->image_paket = $filename;
         $paket->save();
 
         // Simpan item terkait
         $items = $request->get('items');
-        $paket->items()->attach($items);
+        $paket->kelola_barangs()->attach($items);
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->route('paket.index')->with('success', 'Paket berhasil disimpan');
@@ -92,8 +91,10 @@ class PaketController extends Controller
      */
     public function edit($paket_id)
     {
+        $item = KelolaBarang::all();
         $Paket = Paket::find($paket_id);
-        return view('updatePaket', compact('Paket'));
+        $selectedItems = $Paket->kelola_barangs->pluck('id_item')->toArray();
+        return view('updatePaket', compact('Paket', 'item', 'selectedItems'));
     }
 
     /**
@@ -103,9 +104,38 @@ class PaketController extends Controller
      * @param  \App\Models\Paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paket $paket)
+    public function update(Request $request, $paket_id)
     {
         //
+        // Validasi input
+        $request->validate([
+            'nama_paket' => 'required',
+            'image_paket' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'harga_paket' => 'required|numeric',
+            'items' => 'required|array',
+        ]);
+
+        // Simpan data paket
+        $paket = Paket::with('kelola_barangs')->where('paket_id', $paket_id)->first();
+        $paket->nama_paket = $request->get('nama_paket');
+        $paket->harga_paket = $request->get('harga_paket');
+
+        // Upload gambar dan simpan path ke database
+        if ($paket->image_paket && file_exists(storage_path('app/public/'.$paket->image_paket))) {
+            \Storage::delete('public/'.$paket->image_paket);
+        }
+
+        $filename = $request->file('image_paket')->store('static/image_paket/', 'public');
+
+        $paket->image_paket = $filename;
+        $paket->save();
+
+        // Simpan item terkait
+        $items = $request->get('items');
+        $paket->kelola_barangs()->sync($items);
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->route('paket.index')->with('success', 'Paket berhasil diupdate');
     }
 
     /**
@@ -114,8 +144,15 @@ class PaketController extends Controller
      * @param  \App\Models\Paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paket $paket)
+    public function destroy($paket_id)
     {
         //
+        $paket = Paket::find($paket_id);
+
+        $paket->kelola_barangs()->detach();
+
+        $paket->delete();
+
+        return redirect()->route('paket.index')->with('success', 'Paket berhasil dihapus');
     }
 }

@@ -5,7 +5,7 @@
 <div class="all" style="padding-top:20px; width: 1000px;">
     <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        
+
         <div class="d-flex" id="table"
             style=" background-color: #96858F; padding: 25px; border-radius: 35px; margin-left:20px; width: 1030px; max-width: 1050px; min-width: 300px;">
             <div class="bg2"
@@ -82,8 +82,8 @@
                                 <td>
                                     <h5>Gambar</h5>
                                 </td>
-                                <td style="padding-left: 16px;" name="image_paket" id="image_paket">
-                                    <input type="file" class="mb-1 card-title" required></input>
+                                <td style="padding-left: 16px;">
+                                    <input type="file" name="image_paket" id="image_paket" class="mb-1 card-title" required></input>
                                 </td>
                             </tr>
                         </table>

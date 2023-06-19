@@ -8,10 +8,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\TambahPesananController;
-use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaketMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +48,8 @@ Route::get('/kelolaPaket', function () {
     return view('kelolaPaket');
 });
 
-Route::get('/paketDetail', function () {
-    return view('paketDetail');
-});
+Route::get('/paketMember', [PaketMemberController::class, 'index']);
+Route::get('/paketMember/{paket_id}', [PaketMemberController::class, 'show']);
 
 Route::get('/paketDetailMember', function () {
     return view('paketDetailMember');

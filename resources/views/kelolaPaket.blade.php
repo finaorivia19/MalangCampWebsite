@@ -12,7 +12,7 @@
             style="width: 80%; max-width: 540px; min-width: 100px; border-radius:20px; background-color: #D9D9D9; margin-left :50px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="{{asset($paket->image_paket)}}" class="img-fluid rounded-start"
+                    <img src="{{asset('storage/'.$paket->image_paket)}}" class="img-fluid rounded-start"
                         style="height:80%; border-radius:20px; margin-left:13px; margin-top:10px; margin-bottom:10px;">
                 </div>
                 <div class="col-md-8">
@@ -23,13 +23,24 @@
                         <h6 class="mb-4 card-title"
                             style="height:23%; width: 300px; background-color:white; border-radius:20px; padding-left:8px;">
                             <strong>{{$paket->harga_paket}}</strong></h6>
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" class="btn btn-outline-light" style="background-color:#96858F;"
-                            data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Hapus</button>
-                        <a class="btn btn-outline-light" style="background-color:#AC608D;" href="{{ route('paket.show',$paket->paket_id) }}">Detail</a>
-                        <a class="btn btn-outline-light" style="background-color:#673A54;"
-                            href="{{ route('paket.edit',$paket->paket_id) }}">Edit</a>
+
+                        <form id="deleteForm_{{ $paket->paket_id }}" action="{{ route('paket.destroy', $paket->paket_id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light" style="background-color:#96858F;" onclick="event.preventDefault(); confirmDelete('{{ $paket->paket_id }}')">Hapus</button>
+                            <a class="btn btn-outline-light" style="background-color:#AC608D;"
+                                href="{{ route('paket.show',$paket->paket_id) }}">Detail</a>
+                            <a class="btn btn-outline-light" style="background-color:#673A54;"
+                                href="{{ route('paket.edit',$paket->paket_id) }}">Edit</a>
+                        </form>
+                        <script>
+                            function confirmDelete(id) {
+                                if (confirm("Apakah Anda yakin akan menghapus paket ini?")) {
+                                    event.preventDefault();
+                                    document.getElementById('deleteForm_' + id).submit();
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
