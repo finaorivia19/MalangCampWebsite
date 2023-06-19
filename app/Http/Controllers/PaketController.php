@@ -7,7 +7,6 @@ use App\Models\KelolaBarang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
 class PaketController extends Controller
 {
     /**
@@ -17,7 +16,8 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $Pakets = Paket::all();
+        $Pakets = Paket::paginate(5);
+        // $Pakets = Paket::all()->paginate(5);
         // dd($Pakets);
         return view('kelolaPaket', compact('Pakets'));
     }
