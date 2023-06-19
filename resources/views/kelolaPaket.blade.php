@@ -106,4 +106,10 @@
         <a type="button" class="btn btn-light" style="margin-left:280px;" href="{{ route('paket.create') }}">Tambah</a>
     </div>
 </div>
+<!-- <div class="pagination">
+    {{ $Pakets->links() }}
+</div> -->
+<div>
+    {!! $Pakets->withQueryString()->links('pagination::bootstrap-5') !!}
+</div>
 @endsection
