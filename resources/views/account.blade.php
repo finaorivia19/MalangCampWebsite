@@ -12,7 +12,7 @@
     <div class="card mb-3" style="max-width: 830px; background-color:#96858F; right: -50px; border-radius:20px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="{{asset(Auth::user()->photo_profile)}}" class="img-fluid rounded-start"
+                <img src="{{asset('storage/'.Auth::user()->photo_profile)}}" class="img-circle elevation-2 photo-profile"
                     style="width:120px; height:120px; top:80px; margin-left:130%;  text-align: center; margin-top: 32px;">
                 <div class="col-md-8">
                     <div class="card-body">
@@ -41,6 +41,8 @@
                                 <h5 style="line-height:3; word-spacing:12px;">Your Address : {{Auth::user()->address}}
                                 </h5>
                         </div>
+                        <center style="">
+                        </center>
                         <center>
                             <table>
                                 <tr>
