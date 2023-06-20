@@ -8,7 +8,6 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
 use App\Http\Controllers\updateUserController;
-use App\Http\Controllers\DataController;
 use App\Http\Controllers\TambahPesananController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;

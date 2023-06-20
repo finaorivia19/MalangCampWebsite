@@ -16,7 +16,7 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $Pakets = Paket::paginate(5);
+        $Pakets = Paket::orderBy('paket_id', 'desc')->paginate(2);
         // $Pakets = Paket::all()->paginate(5);
         // dd($Pakets);
         return view('kelolaPaket', compact('Pakets'));

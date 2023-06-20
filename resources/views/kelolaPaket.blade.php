@@ -1,6 +1,12 @@
 @extends('layout')
 @section('title', 'Kelola Paket')
 @section('content')
+
+@if (Auth::user()->id > 1)
+    <script>
+        window.location.href = "/"
+    </script>
+@endif
 <div class="all" style="padding-top:40px; padding-left:50px;">
     <div id="table"
         style=" background-color: #96858F; padding: 70px; border-radius: 35px; margin-left:85px; width: 80%; max-width: 800px; min-width: 300px;">
@@ -109,7 +115,7 @@
 <!-- <div class="pagination">
     {{ $Pakets->links() }}
 </div> -->
-<div>
-    {!! $Pakets->withQueryString()->links('pagination::bootstrap-5') !!}
+<div class="mx-auto pb-18 w-4/5">
+    {{ $Pakets->links()}}
 </div>
 @endsection

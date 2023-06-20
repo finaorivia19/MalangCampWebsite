@@ -11,7 +11,7 @@ class PaketMemberController extends Controller
 {
     public function index()
     {
-        $Pakets = Paket::all();
+        $Pakets = Paket::with('kelola_barangs')->paginate(2);
         // dd($Pakets);
         return view('paket', compact('Pakets'));
     }

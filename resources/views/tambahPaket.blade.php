@@ -2,6 +2,11 @@
 @section('title', 'Tambah Paket')
 @section('content')
 
+@if (Auth::user()->id > 1)
+    <script>
+        window.location.href = "/"
+    </script>
+@endif
 <div class="all" style="padding-top:20px; width: 1000px;">
     <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
