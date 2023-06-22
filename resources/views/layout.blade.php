@@ -14,7 +14,12 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -46,9 +51,14 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <style>
+
+        body{
+            overflow-x: hidden;
+        }
         * {
             margin: 0;
             padding: 0;
+
         }
 
         #brand {
@@ -308,6 +318,149 @@
             animation: ani 0.4s ease-out forwards;
             animation-delay: 0.3s;
         }
+
+
+        .cart-pesanan{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100vh;
+            background-color: #96858F;
+            border-radius: 18px;
+        }
+
+        .cart-pesanan .content-cart .left-box-cart{
+            float: left;
+            color:white;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+            width: 50%;
+            height: 88%;
+            margin-top: 1vh;
+            margin-right: 3vh;
+            margin-left: 3vh;
+
+        }
+
+        .cart-pesanan .content-cart .right-box-cart{
+            float: left;
+            color:white;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+            width: 50%;
+            height: 88%;
+            margin-right: 3vh;
+            margin-left: 3vh;
+            margin-top: 1vh;
+            
+        }
+
+        .content-right-box-cart{
+            margin-left: 7vh;
+            margin-right:7vh;
+        }
+
+        .content-left-box-cart{
+            margin-left: 7vh;
+            margin-right:7vh;
+        }
+
+        /* .upload-bukti-transaksi .custom-input-bukti{
+            visibility: hidden;
+            width: 0;
+            position: absolute;
+        } */
+
+        /* .upload-bukti-transaksi label{
+            display: inline-block;
+            margin: 0 auto;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            width: 100%;
+            height: 6vh;
+            padding-left: 2vh;
+            cursor: pointer;
+        } */
+
+        .text-kirim-bukti{
+            float: left;
+            width: 50%;
+            padding: 1vh 2vh;
+        }
+
+        .button-kirim-bukti{
+            text-align: center;
+        }
+
+        .custom-button-kirim{
+            width: 12vh;
+            height: 6vh;
+            background: #96858F;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .img-bukti{
+            display:none;
+            width:8vh;
+            height:10vh;
+        }
+
+        .cart-input{
+            padding-top: 3vh;
+        }
+
+        .cart-input input{
+            width: 100%;
+            height: 6vh;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            border: none;
+        }
+
+        .box-kelolaPesanan{
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 3vh;
+            background-color: #96858F;
+            border-radius: 18px;
+        }
+
+        .box-kelolaPesanan table tbody tr td{
+            padding-left: 2vh;
+            margin-left: 3vh;
+        }
+
+        .kolom-bawah{
+            display: flexbox;
+            width: 100%;
+        }
+
+
+        .kolom-bawah .tombol{
+            margin-left: 77%;
+        }
+
+        .kolom-bawah .tombol .payment{
+            display: inline-block;
+        }
+
+        .kolom-bawah .tombol .konfirmasi{
+            display: inline-block;
+            margin-left: 1vh;
+            margin-bottom: 2vh;
+        }
+
+        tbody tr td{
+            width: 20%;
+        }
+
 
         /* kelola_barangs */
 
@@ -798,6 +951,7 @@
             text-decoration: underline;
         }
 
+
     </style>
 
     <script>
@@ -1128,6 +1282,47 @@
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+
+    <script src="dist/js/pages/dashboard.js"></script>
+
+    {{-- script preview img --}}
+    <script>
+        function previewImage(event) {
+        var input = event.target;
+        var preview = document.getElementById('preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            preview.setAttribute('src', e.target.result);
+            preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.setAttribute('src', '#');
+            preview.style.display = 'none';
+        }
+        }
+    </script>
+
+    {{-- script lightbox belum fix dipakai--}}
+    {{-- <script>
+        function openLightbox(image) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+
+            lightbox.style.display = 'block';
+            lightboxImage.src = image.src;
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script> --}}
+
     <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <script src="{{asset('static/js/live-chat.js')}}"></script>
 </body>
