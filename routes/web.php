@@ -71,6 +71,9 @@ Route::resource('/tambahPesanan', TambahPesananController::class);
 Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
 
 
+Route::get('/laporanPaket/cetak_pdf', [PaketController::class, 'cetak_pdf'])->name('cetak_laporanPaket');
+
+
 Route::resource('paket', PaketController::class);
 
 Route::get('/otp', [OTPController::class, 'show'])->name('verification-get');

@@ -38,6 +38,7 @@
                                 href="{{ route('paket.show',$paket->paket_id) }}">Detail</a>
                             <a class="btn btn-outline-light" style="background-color:#673A54;"
                                 href="{{ route('paket.edit',$paket->paket_id) }}">Edit</a>
+                                
                         </form>
                         <script>
                             function confirmDelete(id) {
@@ -109,7 +110,9 @@
                 </div>
             </div>
         </div> -->
-        <a type="button" class="btn btn-light" style="margin-left:280px;" href="{{ route('paket.create') }}">Tambah</a>
+        <a type="button" class="btn btn-light" style="margin-left:240px;" href="{{ route('paket.create') }}">Tambah</a>
+        <a class="btn btn-light" style="margin-left:5px;"
+                                href="{{ route('cetak_laporanPaket') }}">Cetak</a>
     </div>
 </div>
 <!-- <div class="pagination">
