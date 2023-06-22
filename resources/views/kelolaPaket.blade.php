@@ -1,6 +1,12 @@
 @extends('layout')
 @section('title', 'Kelola Paket')
 @section('content')
+
+@if (Auth::user()->id > 1)
+    <script>
+        window.location.href = "/"
+    </script>
+@endif
 <div class="all" style="padding-top:40px; padding-left:50px;">
     <div id="table"
         style=" background-color: #96858F; padding: 70px; border-radius: 35px; margin-left:85px; width: 80%; max-width: 800px; min-width: 300px;">
@@ -32,6 +38,7 @@
                                 href="{{ route('paket.show',$paket->paket_id) }}">Detail</a>
                             <a class="btn btn-outline-light" style="background-color:#673A54;"
                                 href="{{ route('paket.edit',$paket->paket_id) }}">Edit</a>
+                                
                         </form>
                         <script>
                             function confirmDelete(id) {
@@ -103,13 +110,15 @@
                 </div>
             </div>
         </div> -->
-        <a type="button" class="btn btn-light" style="margin-left:280px;" href="{{ route('paket.create') }}">Tambah</a>
+        <a type="button" class="btn btn-light" style="margin-left:240px;" href="{{ route('paket.create') }}">Tambah</a>
+        <a class="btn btn-light" style="margin-left:5px;"
+                                href="{{ route('cetak_laporanPaket') }}">Cetak</a>
     </div>
 </div>
 <!-- <div class="pagination">
     {{ $Pakets->links() }}
 </div> -->
-<div>
-    {!! $Pakets->withQueryString()->links('pagination::bootstrap-5') !!}
+<div class="mx-auto pb-18 w-4/5">
+    {{ $Pakets->links()}}
 </div>
 @endsection

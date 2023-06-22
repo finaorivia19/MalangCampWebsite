@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paket;
+use App\Models\laporanPaket_pdf;
 use App\Models\KelolaBarang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\PDF;
+use Illuminate\Support\Facades\Storage;
 
 class PaketController extends Controller
 {
@@ -16,7 +19,7 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $Pakets = Paket::paginate(5);
+        $Pakets = Paket::orderBy('paket_id', 'desc')->paginate(2);
         // $Pakets = Paket::all()->paginate(5);
         // dd($Pakets);
         return view('kelolaPaket', compact('Pakets'));
@@ -154,5 +157,11 @@ class PaketController extends Controller
         $paket->delete();
 
         return redirect()->route('paket.index')->with('success', 'Paket berhasil dihapus');
+    }
+
+    public function cetak_pdf(){
+        $Paket = Paket::all();
+        $pdf = PDF::loadview('laporanPaket_pdf',['Paket'=>$Paket]);
+        return $pdf->stream();
     }
 }

@@ -8,7 +8,6 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\KelolaBarangController;
 use App\Http\Controllers\updateUserController;
-use App\Http\Controllers\DataController;
 use App\Http\Controllers\TambahPesananController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OTPController;
@@ -70,6 +69,9 @@ Route::resource('/tambahPesanan', TambahPesananController::class);
 // });
 
 Route::post('register', [RegisterController::class, 'register'])->name('register-otp');
+
+
+Route::get('/laporanPaket/cetak_pdf', [PaketController::class, 'cetak_pdf'])->name('cetak_laporanPaket');
 
 
 Route::resource('paket', PaketController::class);
