@@ -16,6 +16,18 @@ $(document).ready(function () {
     let customerId = $('.user-list.active').attr('user-id');
     changeReceiver(customerId);
 
+    // Get File
+    $('#file-input').change(function() {
+        changeInputFile();
+        var file = $(this).prop('files')[0];
+        var fileName = file['name'];
+        var chatInput = $('#chat-input');
+
+        chatInput.val(fileName);
+        chatInput.prop('disabled', true);
+        checkInputChat(chatInput);
+    });
+
     // Kirim chat dengan Enter
     let chatInput = $('#chat-input');
 
@@ -166,7 +178,18 @@ function addNewChat(chat) {
     let receiverName = receiverData.name;
 
     let temp_html = ``;
+    let temp_file_html = ``;
     // console.log(chatText);
+
+    if (file != 'knowhere') {
+        temp_file_html = `
+            <div style="background-color: rgba(150, 133, 143, 0.5); padding: 8px; border-radius: 4px 4px 0 0;">
+                <span style="display: block; background-color: white; padding: 4px; border-radius: 4px 4px 0 0; text-align: center;">
+                    <a href="http://localhost:8000/storage/${file}" style="color: black;" download>Download File</a>
+                </span>
+            </div>
+        `;
+    }
 
     if (loginId === senderId) {
         temp_html = `
@@ -178,6 +201,16 @@ function addNewChat(chat) {
                 <td></td>
                 <td id="user-chat">
                     ${senderName}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    ${temp_file_html}
                 </td>
                 <td></td>
             </tr>
@@ -224,6 +257,14 @@ function addNewChat(chat) {
                 <td></td>
                 <td></td>
             </tr>
+            <tr>
+                <td></td>
+                <td>
+                    ${temp_file_html}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr id="${chatId}">
                 <td>
                     <img src='http://localhost:8000/${receiverProfile}' class="img-circle elevation-2" alt="receiver-img">
@@ -250,32 +291,32 @@ function addNewChat(chat) {
 function sendChat() {
 
     let customerId = $('.user-list.active').attr('user-id');
-
     let senderId = loginId;
     let receiverId = customerId;
     let chat = $('#chat-input').val();
+    let file = $('#file-input').prop('files')[0];
 
-    let data = {
-        sender_id: senderId,
-        receiver_id: receiverId,
-        chat: chat,
-        file: 'knowhere',
-        is_read: 0,
+    if (!file) {
+        file = 'knowhere';
     }
 
-    // console.log(receiverId);
-    // return;
+    let formData = new FormData();
+    formData.append('sender_id', senderId);
+    formData.append('receiver_id', receiverId);
+    formData.append('chat', chat);
+    formData.append('file', file);
+    formData.append('is_read', 0);
 
     $.ajax({
         type: 'POST',
         url: '/api/live-chat',
-        data: data,
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(response) {
-            // console.log(response);
+            // return console.log(response);
             let chat = response['data'];
             document.cookie = "last-chat=" + chat['chat_id'];
-
-            // console.log(document.cookie);
 
             $('#chat-input').val('');
             $('#send-chat').css('display', 'none');
@@ -306,7 +347,18 @@ function editChat(chat_id) {
     let receiverId = customerId;
     let chat = $('#chat-input').val();
     chat += ' (edited)';
+    // let file = $('#file-input').prop('files')[0];
 
+    // if (!file) {
+    //     file = 'knowhere';
+    // }
+
+    // let formData = new FormData();
+    // formData.append('sender_id', senderId);
+    // formData.append('receiver_id', receiverId);
+    // formData.append('chat', chat);
+    // formData.append('file', file);
+    // formData.append('is_read', 0);
     let data = {
         sender_id: senderId,
         receiver_id: receiverId,
@@ -319,6 +371,9 @@ function editChat(chat_id) {
         type: 'PUT',
         url: `/api/live-chat/${chat_id}`,
         data: data,
+        // data: formData,
+        // processData: false,
+        // contentType: false,
         success: function(response) {
 
             $('#chat-input').val('');
@@ -361,6 +416,31 @@ function closeEdit() {
     }, 8000);
 }
 
+function changeInputFile() {
+    let minimize = $('#minimize');
+    let minimizeChat = $('#minimize a');
+    let closeChat = $('#minimize a img');
+
+    minimize.attr('onclick', 'closeInputFile()');
+    minimizeChat.removeAttr('href');
+    closeChat.attr('src', 'http://localhost:8000/static/image/close-icon.png');
+}
+
+function closeInputFile() {
+    let chatInput = $('#chat-input');
+    let minimize = $('#minimize');
+    let closeChat = $('#minimize a img');
+
+    chatInput.prop('disabled', false);
+    minimize.removeAttr('onclick');
+    closeChat.attr('src', 'http://localhost:8000/static/image/minimize-icon.png');
+    chatInput.val('');
+
+    setTimeout(function() {
+        minimizeChat();
+    }, 8000);
+}
+
 function minimizeChat() {
     let minimizeChat = $('#minimize a');
     minimizeChat.attr('href', '/');
@@ -369,6 +449,7 @@ function minimizeChat() {
 function openModalConfirm(chat_id) {
     $('#confirmDeleteModal').modal('show');
     $('#confirmDeleteButton').attr('onclick', `deleteChat(${chat_id})`);
+    closeEdit();
 }
 
 function closeModalConfirm() {

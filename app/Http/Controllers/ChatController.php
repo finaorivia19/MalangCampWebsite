@@ -44,13 +44,20 @@ class ChatController extends Controller
     {
         //
         $dateTime = Carbon::now();
+        $file = $request->file;
+
+        if ($file != 'knowhere') {
+            $fileName = $request->file->getClientOriginalName();
+            $fileName = $dateTime->format('Y-m-d_H.i.s') . '_' . $fileName;
+            $file = $request->file->storeAs('static/file_chat', $fileName, 'public');
+        }
 
         new ChatResource(Chat::create(
             [
                 'sender_id' => $request->sender_id,
                 'receiver_id' => $request->receiver_id,
                 'chat' => $request->chat,
-                'file' => $request->file,
+                'file' => $file,
                 'date_time' => $dateTime,
                 'is_read' => $request->is_read,
             ]
@@ -98,6 +105,13 @@ class ChatController extends Controller
         //
         $chat = Chat::find($chat_id);
         $dateTime = Carbon::now();
+        $file = $request->file;
+
+        if ($file != 'knowhere') {
+            $fileName = $request->file->getClientOriginalName();
+            $fileName = $dateTime->format('Y-m-d_H.i.s') . '_' . $fileName;
+            $file = $request->file->storeAs('static/file_chat', $fileName, 'public');
+        }
 
         $chat->update([
             'sender_id' => $request->sender_id,
@@ -122,6 +136,9 @@ class ChatController extends Controller
     {
         //
         $chat = Chat::find($chat_id);
+        if($chat->file != 'knowhere') {
+            \Storage::delete('public/'.$chat->file);
+        }
         $chat->delete();
         return response()->noContent();
     }

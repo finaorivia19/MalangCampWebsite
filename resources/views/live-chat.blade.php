@@ -570,7 +570,10 @@
                         </td>
                         <td>
                             <div id="file-chat">
-                                <img src="{{asset('static/image/file-icon.png')}}" alt="file-icon">
+                                <label for="file-input">
+                                    <img src="{{asset('static/image/file-icon.png')}}" alt="file-icon">
+                                </label>
+                                <input type="file" id="file-input" name="file-input" style="display: none;">
                             </div>
                         </td>
                         <td>
