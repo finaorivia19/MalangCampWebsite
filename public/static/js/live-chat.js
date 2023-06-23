@@ -307,6 +307,11 @@ function sendChat() {
     formData.append('file', file);
     formData.append('is_read', 0);
 
+    // for (let pair of formData.entries()) {
+    //     console.log(pair);
+    //   }
+    // return;
+
     $.ajax({
         type: 'POST',
         url: '/api/live-chat',
@@ -323,6 +328,9 @@ function sendChat() {
             addNewChat(chat);
             scrollToBottom();
             // chatSound.play();
+        },
+        error: function(xhr, status, error) {
+            console.log(xhr.responseText);
         }
     });
 }
@@ -341,39 +349,46 @@ function deleteChat(chat_id) {
 }
 
 function editChat(chat_id) {
-    let customerId = $('.user-list.active').attr('user-id');
 
+    let customerId = $('.user-list.active').attr('user-id');
     let senderId = loginId;
     let receiverId = customerId;
     let chat = $('#chat-input').val();
     chat += ' (edited)';
-    // let file = $('#file-input').prop('files')[0];
+    let file = $('#file-input').prop('files')[0];
 
-    // if (!file) {
-    //     file = 'knowhere';
-    // }
-
-    // let formData = new FormData();
-    // formData.append('sender_id', senderId);
-    // formData.append('receiver_id', receiverId);
-    // formData.append('chat', chat);
-    // formData.append('file', file);
-    // formData.append('is_read', 0);
-    let data = {
-        sender_id: senderId,
-        receiver_id: receiverId,
-        chat: chat,
-        file: 'knowhere',
-        is_read: 0,
+    if (!file) {
+        file = 'knowhere';
     }
 
+    let formData = new FormData();
+    formData.append('_method', 'PUT');
+    formData.append('sender_id', senderId);
+    formData.append('receiver_id', receiverId);
+    formData.append('chat', chat);
+    formData.append('file', file);
+    formData.append('is_read', 0);
+
+    // for (let pair of formData.entries()) {
+    //     console.log(pair);
+    //   }
+    // return;
+
+    // let data = {
+    //     sender_id: senderId,
+    //     receiver_id: receiverId,
+    //     chat: chat,
+    //     file: file,
+    //     is_read: 0,
+    // }
+
     $.ajax({
-        type: 'PUT',
+        type: 'POST',
         url: `/api/live-chat/${chat_id}`,
-        data: data,
-        // data: formData,
-        // processData: false,
-        // contentType: false,
+        // data: data,
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(response) {
 
             $('#chat-input').val('');
@@ -381,6 +396,9 @@ function editChat(chat_id) {
             showChat('edit');
             closeEdit();
             // chatSound.play();
+        },
+        error: function(xhr, status, error) {
+            console.log(xhr.responseText);
         }
     });
 }

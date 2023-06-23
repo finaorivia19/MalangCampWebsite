@@ -1006,14 +1006,14 @@
                         <select class="form-select" aria-label="Default select example">
                             @if (Auth::user()->id > 1)
 
-                            <option value={{ $users->id }} selected><span>{{ $users->name }}</span><strong> (5)</strong>
+                            <option value={{ $users->id }} selected><span>{{ $users->name }}</span><!-- <strong> (5)</strong> -->
                             </option>
 
                             @elseif (Auth::user()->id == 1)
 
                             @foreach ($users as $user)
 
-                            <option value={{ $user->id }} selected><span>{{ $user->name }}</span><strong> (5)</strong>
+                            <option value={{ $user->id }} selected><span>{{ $user->name }}</span><!-- <strong> (5)</strong>  -->
                             </option>
 
                             @endforeach

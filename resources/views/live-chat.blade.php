@@ -369,14 +369,14 @@
             <div class="sidebar">
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline" id="search-area">
+                {{-- <div class="form-inline" id="search-area">
                     <div>
                         <input type="text" placeholder="Search" id="search-column">
                         <button id="search-button">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-                </div>
+                </div> --}}
 
                 <hr color="white" />
 
@@ -395,7 +395,7 @@
                                         <i class="fa fa-user nav-icon text-dark" data-toggle="tooltip"
                                             data-placement="right" title="{{ $users->name }}"></i>
                                         <span class="mr-1">{{ $users->name }}</span>
-                                        <span class="badge badge-info">5</span>
+                                        {{-- <span class="badge badge-info">5</span> --}}
                                     </a>
                                 </li>
 
@@ -411,7 +411,7 @@
                                         <i class="fa fa-user nav-icon text-light" data-toggle="tooltip"
                                             data-placement="right" title="{{ $user->name }}"></i>
                                         <span class="mr-1">{{ $user->name }}</span>
-                                        <span class="badge badge-info">5</span>
+                                        {{-- <span class="badge badge-info">5</span> --}}
                                     </a>
                                 </li>
 
@@ -423,7 +423,7 @@
                                         <i class="fa fa-user nav-icon text-dark" data-toggle="tooltip"
                                             data-placement="right" title="{{ $user->name }}"></i>
                                         <span class="mr-1">{{ $user->name }}</span>
-                                        <span class="badge badge-info">5</span>
+                                        {{-- <span class="badge badge-info">5</span> --}}
                                     </a>
                                 </li>
 

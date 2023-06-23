@@ -108,6 +108,8 @@ class ChatController extends Controller
         $file = $request->file;
 
         if ($file != 'knowhere') {
+            \Storage::delete('public/'.$chat->file);
+
             $fileName = $request->file->getClientOriginalName();
             $fileName = $dateTime->format('Y-m-d_H.i.s') . '_' . $fileName;
             $file = $request->file->storeAs('static/file_chat', $fileName, 'public');
@@ -117,7 +119,7 @@ class ChatController extends Controller
             'sender_id' => $request->sender_id,
             'receiver_id' => $request->receiver_id,
             'chat' => $request->chat,
-            'file' => $request->file,
+            'file' => $file,
             'date_time' => $dateTime,
             'is_read' => $request->is_read,
         ]);
