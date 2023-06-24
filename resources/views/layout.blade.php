@@ -95,6 +95,18 @@
                 $('#deleteForm').submit(); // Submit form when delete button is clicked
                 $('#confirmDeleteModal').modal('hide'); // Close modal
             });
+
+            // Enter to Search
+            let searchInput = $('#search-input');
+            let searchForm = $('#search-form');
+
+            searchInput.on('keyup', function (event) {
+                // console.log(event);
+                if (event.key === 'Enter') {
+                    // console.log('enter');
+                    searchForm.submit();
+                }
+            });
         });
 
         function close_sidebar() {

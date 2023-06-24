@@ -3,7 +3,9 @@
 @section('title', 'Kelola Barang')
 
 @section('search')
-<input class="main shadow" placeholder="Search" /><span class="searchicon"></span>
+<form action="{{ route('kelolaBarang.index') }}" method="GET" id="search-form">
+    <input class="main shadow" id="search-input" name="search-input" value="{{request('search-input')}}" placeholder="Search" /><span class="searchicon"></span>
+</form>
 @endsection
 
 @section('content')

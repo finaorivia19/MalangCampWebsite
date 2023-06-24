@@ -14,10 +14,20 @@ class KelolaBarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kelolaBarang = KelolaBarang::paginate(2);
-        return view('kelolaBarang', compact(('kelolaBarang')));
+        if($request->has('search-input')) {
+            $key = request('search-input');
+            // $kelolaBarang = KelolaBarang::where('nama_item', 'LIKE', '%'.$key.'%')->paginate(2);
+            $kelolaBarang = KelolaBarang::where('nama_item', 'LIKE', '%'.$key.'%')
+            ->orWhere('jenis', 'LIKE', '%'.$key.'%')
+            ->orWhere('keterangan', 'LIKE', '%'.$key.'%')
+            ->paginate(2);
+            return view('kelolaBarang', compact(('kelolaBarang')));
+        } else {
+            $kelolaBarang = KelolaBarang::orderBy('id_item', 'desc')->paginate(2);
+            return view('kelolaBarang', compact(('kelolaBarang')));
+        }
     }
 
     /**
