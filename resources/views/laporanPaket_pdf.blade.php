@@ -8,7 +8,7 @@ table, th, td {
   border: 2px solid black;
   padding: 30px;
   border-collapse: collapse;
-  margin-left:75px;
+  margin-left: 75px;
 }
 </style>
 </head>
