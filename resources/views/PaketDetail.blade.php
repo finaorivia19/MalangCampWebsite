@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'PaketDetail')
+@section('title', 'Paket Detail')
 @section('content')
 
 <div class="all" style="padding-top:20px; width: 1000px;">

@@ -32,6 +32,12 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('username');
+            $table->dropColumn('phoneNumber');
+            $table->dropColumn('address');
+            $table->dropColumn('photo_profile')->nullable();
+            $table->dropColumn('otp_code')->nullable();
+            $table->dropColumn('otp_expired')->nullable();
         });
     }
 };

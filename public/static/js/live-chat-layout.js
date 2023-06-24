@@ -170,7 +170,7 @@ function addNewChat(chat) {
                     ${chatText}
                 </td>
                 <td>
-                    <img src="${ userProfile }" class="img-circle elevation-2" alt="sender-img">
+                    <img src="storage/${ userProfile }" class="img-circle elevation-2" alt="sender-img">
                 </td>
             </tr>
         </table>

@@ -1,5 +1,10 @@
 @extends('layout')
 @section('title', 'Kelola Paket')
+
+@section('search')
+<input class="main shadow" placeholder="Search" /><span class="searchicon"></span>
+@endsection
+
 @section('content')
 
 @if (Auth::user()->id > 1)
@@ -7,6 +12,7 @@
         window.location.href = "/"
     </script>
 @endif
+
 <div class="all" style="padding-top:40px; padding-left:50px;">
     <div id="table"
         style=" background-color: #96858F; padding: 70px; border-radius: 35px; margin-left:85px; width: 80%; max-width: 800px; min-width: 300px;">
@@ -38,7 +44,7 @@
                                 href="{{ route('paket.show',$paket->paket_id) }}">Detail</a>
                             <a class="btn btn-outline-light" style="background-color:#673A54;"
                                 href="{{ route('paket.edit',$paket->paket_id) }}">Edit</a>
-                                
+
                         </form>
                         <script>
                             function confirmDelete(id) {
