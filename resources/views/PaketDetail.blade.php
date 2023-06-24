@@ -6,7 +6,7 @@
     <div class="d-flex" id="table"
         style=" background-color: #96858F; padding: 25px; border-radius: 35px; margin-left:20px; width: 1030px; max-width: 1050px; min-width: 300px;">
         <div class="bg2"
-            style="background-color: #B5AAB1; padding: 25px; border-radius: 35px; margin-left:5px; width: 100%; max-width: 750px; min-width: 300px;">
+            style="background-color: #B5AAB1; padding: 25px; border-radius: 35px 0px 0px 35px; margin-left:5px; width: 100%; max-width: 750px; min-width: 300px; overflow: auto; height:500px;">
 
             @foreach($Paket->kelola_barangs as $item)
 
