@@ -82,7 +82,7 @@ function getDataUser(userId) {
 function changeReceiver(customerId) {
     let userData = getDataUser(customerId);
 
-    $('.image-user img').prop('src', `http://localhost:8000/${ userData.photo_profile }`);
+    $('.image-user img').prop('src', `http://localhost:8000/storage/${ userData.photo_profile }`);
     $('.image-user h5').text(`${userData.name}`);
 }
 
@@ -231,7 +231,7 @@ function addNewChat(chat) {
                     ${chatText}
                 </td>
                 <td>
-                    <img src='http://localhost:8000/${ senderProfile }' class="img-circle elevation-2" alt="sender-img">
+                    <img src='http://localhost:8000/storage/${ senderProfile }' class="img-circle elevation-2" alt="sender-img">
                 </td>
             </tr>
             <tr id="date-time">
@@ -267,7 +267,7 @@ function addNewChat(chat) {
             </tr>
             <tr id="${chatId}">
                 <td>
-                    <img src='http://localhost:8000/${receiverProfile}' class="img-circle elevation-2" alt="receiver-img">
+                    <img src='http://localhost:8000/storage/${receiverProfile}' class="img-circle elevation-2" alt="receiver-img">
                 </td>
                 <td id="chat-receiver" class="chat-text">
                     ${chatText}

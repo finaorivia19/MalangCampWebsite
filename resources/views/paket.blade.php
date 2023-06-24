@@ -1,5 +1,10 @@
 @extends('layout')
 @section('title', 'Paket')
+
+@section('search')
+<input class="main shadow" placeholder="Search" /><span class="searchicon"></span>
+@endsection
+
 @section('content')
 <div class="all" style="padding-top:20px;" >
     <div id="table"
